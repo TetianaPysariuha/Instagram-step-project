@@ -8,7 +8,12 @@
     "@testing-library/user-event": "^13.5.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-redux": "^8.0.4",
+    "react-router-dom": "^6.4.2",
     "react-scripts": "5.0.1",
+    "redux": "^4.2.0",
+    "redux-devtools-extension": "^2.13.9",
+    "redux-thunk": "^2.4.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -31,7 +36,9 @@
       "import/no-named-as-default": 0,
       "import/no-named-as-default-member": 0,
       "no-undef": 0,
-      "react/react-in-jsx-scope": 0
+      "react/react-in-jsx-scope": 0,
+      "linebreak-style": 0,
+      "import/no-unresolved": 0
     }
   },
   "browserslist": {
@@ -53,6 +60,8 @@
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
-    "husky": "^8.0.1"
+    "husky": "^8.0.1",
+    "prop-types": "^15.8.1",
+    "sass": "^1.55.0"
   }
 }
