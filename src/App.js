@@ -4,11 +4,11 @@ import { useSelector } from 'react-redux';
 import Modal from './components/Modal/Modal';
 
 function App() {
-  const { isOpenModal, content } = useSelector((store) => store.modal);
+  const { isOpenModal } = useSelector((store) => store.modal);
 
   return (
     <div className="App">
-      {isOpenModal && <Modal content={content} />}
+      {isOpenModal && <Modal />}
     </div>
   );
 }
