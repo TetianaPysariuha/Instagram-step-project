@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import styles from './UserName.module.scss';
+import defaultAvatar from './default-avatar.jpg';
 
 function UserName({
   image, nickname, additionalString, comment,
@@ -31,7 +32,7 @@ UserName.prototype = {
 };
 
 UserName.defaultProps = {
-  image: './images/default-avatar.jpg',
+  image: defaultAvatar,
   additionalString: '',
 };
 
