@@ -4,7 +4,7 @@ import styles from './UserName.module.scss';
 import defaultAvatar from './default-avatar.jpg';
 
 function UserName({
-  image, nickname, additionalString, comment,
+  image, nickname, additionalString, comment, additionalStringFunc,
 }) {
   return (
     <div className={styles.userNameContainer}>
@@ -18,7 +18,7 @@ function UserName({
           </Link>
           <p className={styles.comment}>{comment}</p>
         </div>
-        {additionalString && <p className={styles.additionalString}>{additionalString}</p>}
+        {additionalString && <p className={styles.additionalString} onClick={additionalStringFunc}>{additionalString}</p>}
       </div>
     </div>
   );
@@ -29,11 +29,13 @@ UserName.prototype = {
   nickname: PropTypes.string.isRequired,
   additionalString: PropTypes.string,
   comment: PropTypes.string,
+  additionalStringFunc: PropTypes.func,
 };
 
 UserName.defaultProps = {
   image: defaultAvatar,
   additionalString: '',
+  additionalStringFunc: () => {},
 };
 
 export default UserName;

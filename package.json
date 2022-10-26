@@ -40,7 +40,10 @@
       "react/react-in-jsx-scope": 0,
       "linebreak-style": 0,
       "import/no-extraneous-dependencies": 0,
-      "react/prop-types": 0
+      "react/prop-types": 0,
+      "max-len": 0,
+      "jsx-a11y/click-events-have-key-events": 0,
+      "jsx-a11y/no-noninteractive-element-interactions":0
     }
   },
   "browserslist": {
