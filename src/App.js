@@ -1,10 +1,16 @@
+import React from 'react';
 import './App.css';
+import { useSelector } from 'react-redux';
+import Modal from './components/Modal/Modal';
 import UserName from './components/UserName/UserName';
 import styles from './App.module.scss';
 
 function App() {
+  const { isOpenModal } = useSelector((store) => store.modal);
+
   return (
     <div className={styles.body}>
+      {isOpenModal && <Modal />}
       <UserName
         image="./images/1.jpg"
         nickname="test_user123423"
