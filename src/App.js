@@ -5,8 +5,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import Modal from './components/Modal/Modal';
 import { getPosts } from './store/posts/actionCreators';
 import { getUsers } from './store/users/actionCreators';
-import UserName from './components/UserName/UserName';
 import styles from './App.module.scss';
+import UserPage from './pages/UserPage/UserPage';
 
 function App() {
   const { isOpenModal } = useSelector((store) => store.modal);
@@ -28,7 +28,7 @@ function App() {
   return (
     <div className={styles.body}>
       {isOpenModal && <Modal />}
-      <UserName
+      {/* <UserName
         image="./images/1.jpg"
         nickname="test_user123423"
         additionalString="Пожаловаться"
@@ -43,7 +43,8 @@ function App() {
         nickname="test_user1"
         additionalString="4 HOURS AGO"
       />
-      <UserName />
+      <UserName /> */}
+      <UserPage />
     </div>
   );
 }
