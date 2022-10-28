@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header reders Should Header render 1`] = `
+<DocumentFragment>
+  <div
+    class="userNameContainer"
+  >
+    <a
+      class="avatarLink"
+      href="/undefined/"
+    >
+      <img
+        alt="avatar"
+        class="avatar"
+        src="default-avatar.jpg"
+      />
+    </a>
+    <div
+      class="nicknameWrraper"
+    >
+      <div>
+        <a
+          class="nickname"
+          href="/undefined/"
+        >
+          <span />
+        </a>
+        <p
+          class="comment"
+        />
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
