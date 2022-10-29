@@ -7,6 +7,7 @@ import { getPosts } from './store/posts/actionCreators';
 import { getUsers } from './store/users/actionCreators';
 import UserName from './components/UserName/UserName';
 import styles from './App.module.scss';
+import Post from './components/Post/Post';
 
 function App() {
   const { isOpenModal } = useSelector((store) => store.modal);
@@ -14,6 +15,14 @@ function App() {
   const { users } = useSelector((store) => store.users); */
 
   const dispatch = useDispatch();
+  const userName = <UserName image="./images/1.jpg" nickname="Nick" additionalString="addstring" />;
+  const comments = (
+    <>
+      <p>comment1</p>
+      <p>comment2</p>
+      <p>comment3</p>
+    </>
+  );
 
   useEffect(() => {
     dispatch(getPosts());
@@ -44,8 +53,49 @@ function App() {
         additionalString="4 HOURS AGO"
       />
       <UserName />
+      <Post postId="63555d4a339661775b42dd76" userName={userName} maneImg="./images/post1.jpeg" title="Big Dog and Small Girl" isLiked handleCklickLike={() => {}} handleCklickComments={() => {}} isFavorite handleCklickFavorite={() => {}} comments={comments} isMore handleCklickShowMore={() => {}} />
+
+      <Post
+        postId="1"
+        userName={userName}
+        maneImg="./images/post1.jpeg"
+        title="Big Dog and Small Girl"
+        isLiked
+        handleCklickLike={() => {}}
+        handleCklickComments={() => {}}
+        isFavorite
+        handleCklickFavorite={() => {}}
+        comments={comments}
+        isMore
+        handleCklickShowMore={() => {}}
+        handleClickSubmit={() => {}}
+      />
     </div>
   );
 }
 
 export default App;
+
+/* <div className={styles.postContainier}>
+      <div className={styles.postWrapper}>
+        <UserName image="./images/1.jpg" nickname="Nick" additionalString="addstring" />
+        <img className={styles.maneFoto} src="./images/post1.jpeg" alt="foto" />
+        <div className={styles.buttonBox}>
+          <div>
+            <img src="./images/heart-white.svg" alt="like" />
+            <img src="./images/comment.svg" alt="comment" />
+          </div>
+          <img src="./images/favorite.svg" alt="favorite" />
+        </div>
+        <div className={styles.commentBox}>
+          <div className={styles.comments}>
+            <p>Comment1</p>
+            {isMore && <button type="button" className={styles.showMoreBtn} onClick={() => {}}>--------------Show more comments--------------</button>}
+          </div>
+          <div className={styles.addComment}>
+            <input type="text" />
+            <button type="button" className={styles.showMoreBtn} onClick={() => {}}>Add comment</button>
+          </div>
+        </div>
+      </div>
+    </div> */

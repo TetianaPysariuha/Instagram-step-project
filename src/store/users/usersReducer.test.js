@@ -6,6 +6,12 @@ import {
 const initialState = {
   users: [],
   currentUser: {},
+  loggedUser: {
+    _id: '635429e5461d59d5a106db66',
+    avatar: 'E:\\DANIT\\Homework\\homework\\React\\HW2_react\\musica\\public\\img\\star_add.png',
+    nik: 'Milda',
+    name: 'Patrisia Mumamba',
+  },
 };
 
 const addUser = {
@@ -13,12 +19,24 @@ const addUser = {
     nik: 'ADD_USER',
   }],
   currentUser: {},
+  loggedUser: {
+    _id: '635429e5461d59d5a106db66',
+    avatar: 'E:\\DANIT\\Homework\\homework\\React\\HW2_react\\musica\\public\\img\\star_add.png',
+    nik: 'Milda',
+    name: 'Patrisia Mumamba',
+  },
 };
 
 const getUserById = {
   users: [],
   currentUser: {
     nik: 'GET_UDER_BY_ID',
+  },
+  loggedUser: {
+    _id: '635429e5461d59d5a106db66',
+    avatar: 'E:\\DANIT\\Homework\\homework\\React\\HW2_react\\musica\\public\\img\\star_add.png',
+    nik: 'Milda',
+    name: 'Patrisia Mumamba',
   },
 };
 
@@ -27,6 +45,12 @@ const getUsers = {
     nik: 'GET_USERS',
   }],
   currentUser: {},
+  loggedUser: {
+    _id: '635429e5461d59d5a106db66',
+    avatar: 'E:\\DANIT\\Homework\\homework\\React\\HW2_react\\musica\\public\\img\\star_add.png',
+    nik: 'Milda',
+    name: 'Patrisia Mumamba',
+  },
 };
 
 const updateUser = {
@@ -34,6 +58,12 @@ const updateUser = {
     nik: 'UPDATE_USER',
   }],
   currentUser: {},
+  loggedUser: {
+    _id: '635429e5461d59d5a106db66',
+    avatar: 'E:\\DANIT\\Homework\\homework\\React\\HW2_react\\musica\\public\\img\\star_add.png',
+    nik: 'Milda',
+    name: 'Patrisia Mumamba',
+  },
 };
 
 const deleteUser = {
@@ -41,6 +71,12 @@ const deleteUser = {
     nik: 'DELETE_USER',
   }],
   currentUser: {},
+  loggedUser: {
+    _id: '635429e5461d59d5a106db66',
+    avatar: 'E:\\DANIT\\Homework\\homework\\React\\HW2_react\\musica\\public\\img\\star_add.png',
+    nik: 'Milda',
+    name: 'Patrisia Mumamba',
+  },
 };
 
 describe('Reducers testing', () => {

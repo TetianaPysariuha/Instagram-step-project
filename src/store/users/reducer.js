@@ -5,6 +5,12 @@ import {
 const initialState = {
   users: [],
   currentUser: {},
+  loggedUser: {
+    _id: '635429e5461d59d5a106db66',
+    avatar: 'E:\\DANIT\\Homework\\homework\\React\\HW2_react\\musica\\public\\img\\star_add.png',
+    nik: 'Milda',
+    name: 'Patrisia Mumamba',
+  },
 };
 
 // the rule is switched off because state shoul be first in props

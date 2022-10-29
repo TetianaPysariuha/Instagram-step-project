@@ -1,0 +1,46 @@
+.postContainier{
+    width: 60%;
+    border: 3px solid rgba($color: gray, $alpha: 0.3);
+    margin: 30px auto;
+}
+.postWrapper{
+    width: 100%;
+    margin: auto;
+}
+.maneFoto{
+    width: 100%;
+    margin: 10px auto;
+}
+.buttonBox{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    box-sizing:border-box;
+}
+.groupBtn{
+    display: flex;
+    justify-content: space-around;
+    width: 60px;
+}
+.commentBox{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.comments{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+.showMoreBtn{
+    border: none;
+    background-color: white;
+    cursor: pointer;
+    padding: 20px;
+    align-self: center;
+}
+.addComment{
+border-top: 1px solid rgba($color: gray, $alpha: 0.1);
+}
