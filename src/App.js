@@ -2,14 +2,17 @@
 import React, { useEffect } from 'react';
 import './App.css';
 import { useSelector, useDispatch } from 'react-redux';
+import { Routes, Route } from 'react-router-dom';
 import Modal from './components/Modal/Modal';
 import { getPosts } from './store/posts/actionCreators';
 import { getUsers } from './store/users/actionCreators';
 import styles from './App.module.scss';
 import UserPage from './pages/UserPage/UserPage';
+import Header from './components/Header/Header';
 
 function App() {
   const { isOpenModal } = useSelector((store) => store.modal);
+  const { posts } = useSelector((store) => store.posts);
   /*   const { posts } = useSelector((store) => store.posts);
   const { users } = useSelector((store) => store.users); */
 
@@ -25,9 +28,12 @@ function App() {
     console.log(users);
   }, [posts, users]); */
 
+  console.log(posts);
+
   return (
     <div className={styles.body}>
       {isOpenModal && <Modal />}
+      <Header />
       {/* <UserName
         image="./images/1.jpg"
         nickname="test_user123423"
@@ -44,7 +50,10 @@ function App() {
         additionalString="4 HOURS AGO"
       />
       <UserName /> */}
-      <UserPage />
+      <Routes>
+        <Route path="/" element={<h1>MAIN</h1>} />
+        <Route path="/userpage/*" element={<UserPage />} />
+      </Routes>
     </div>
   );
 }

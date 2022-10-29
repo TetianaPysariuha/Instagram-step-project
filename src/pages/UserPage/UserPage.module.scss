@@ -1,7 +1,6 @@
 .userPage {
     margin: 0 auto;
     max-width: 935px;
-    background-color: rgb(250, 250, 250);
     padding: 30px 20px;
 }
 
@@ -67,17 +66,24 @@
 .userPageMenu {
     text-align: center;
     border-top: 1px solid rgb(219, 219, 219);
+    padding: 10px;
+}
 
-    &>button {
-        flex-direction: row;
-        height: 52px;
-        border: none;
-        background-color: transparent;
-        margin: 0 30px;
-        border-top: 1px solid black;
 
-        &>svg {
-            margin: 0 3px;
-        }
+
+.userPageMenuLink {
+    text-decoration: none;
+    color: rgb(38, 38, 38);
+    margin: 0 30px;
+    padding: 10px;
+    font-weight: 300;
+
+
+    &>svg {
+        margin: 0 3px;
     }
+}
+
+.userPageMenuLinkAcite {
+    border-top: 1px solid black;
 }
