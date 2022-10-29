@@ -1,0 +1,233 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Post snapshot testing Should Post to render where isLiked and isFavorite and isMore with value false 1`] = `
+<DocumentFragment>
+  <div
+    class="postContainier"
+  >
+    <div
+      class="postWrapper"
+    >
+      <div
+        class="userNameContainer"
+      >
+        <a
+          class="avatarLink"
+          href="/undefined/"
+        >
+          <img
+            alt="avatar"
+            class="avatar"
+            src="default-avatar.jpg"
+          />
+        </a>
+        <div
+          class="nicknameWrraper"
+        >
+          <div>
+            <a
+              class="nickname"
+              href="/undefined/"
+            >
+              <span />
+            </a>
+            <p
+              class="comment"
+            />
+          </div>
+        </div>
+      </div>
+      <img
+        alt="Big Dog and Small Girl"
+        class="maneFoto"
+        src="./images/post1.jpeg"
+      />
+      <div
+        class="buttonBox"
+      >
+        <div
+          class="groupBtn"
+        >
+          <img
+            alt="liked"
+            data-testid="likeBtn"
+            src="./images/heart-red.svg"
+          />
+          <img
+            alt="see all comments"
+            data-testid="commentBtn"
+            src="./images/comment.svg"
+          />
+        </div>
+        <img
+          alt="favorite"
+          data-testid="favoriteBtn"
+          src="./images/favorite-marked.svg"
+        />
+      </div>
+      <div
+        class="commentBox"
+      >
+        <div
+          class="comments"
+        >
+          <p>
+            comment1
+          </p>
+          <p>
+            comment2
+          </p>
+          <p>
+            comment3
+          </p>
+          <button
+            class="showMoreBtn"
+            type="button"
+          >
+            --------------Show more comments--------------
+          </button>
+        </div>
+        <div
+          class="addComment"
+        >
+          <form
+            action="#"
+            class="form"
+          >
+            <input
+              class="formField"
+              name="comment"
+              placeholder="write a comment"
+              type="text"
+              value=""
+            />
+            <button
+              class="btnSubmit"
+              disabled=""
+              type="submit"
+            >
+              Add comment
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Post snapshot testing Should Post to render where isLiked and isFavorite and isMore with value true 1`] = `
+<DocumentFragment>
+  <div
+    class="postContainier"
+  >
+    <div
+      class="postWrapper"
+    >
+      <div
+        class="userNameContainer"
+      >
+        <a
+          class="avatarLink"
+          href="/undefined/"
+        >
+          <img
+            alt="avatar"
+            class="avatar"
+            src="default-avatar.jpg"
+          />
+        </a>
+        <div
+          class="nicknameWrraper"
+        >
+          <div>
+            <a
+              class="nickname"
+              href="/undefined/"
+            >
+              <span />
+            </a>
+            <p
+              class="comment"
+            />
+          </div>
+        </div>
+      </div>
+      <img
+        alt="Big Dog and Small Girl"
+        class="maneFoto"
+        src="./images/post1.jpeg"
+      />
+      <div
+        class="buttonBox"
+      >
+        <div
+          class="groupBtn"
+        >
+          <img
+            alt="liked"
+            data-testid="likeBtn"
+            src="./images/heart-red.svg"
+          />
+          <img
+            alt="see all comments"
+            data-testid="commentBtn"
+            src="./images/comment.svg"
+          />
+        </div>
+        <img
+          alt="favorite"
+          data-testid="favoriteBtn"
+          src="./images/favorite-marked.svg"
+        />
+      </div>
+      <div
+        class="commentBox"
+      >
+        <div
+          class="comments"
+        >
+          <p>
+            comment1
+          </p>
+          <p>
+            comment2
+          </p>
+          <p>
+            comment3
+          </p>
+          <button
+            class="showMoreBtn"
+            type="button"
+          >
+            --------------Show more comments--------------
+          </button>
+        </div>
+        <div
+          class="addComment"
+        >
+          <form
+            action="#"
+            class="form"
+          >
+            <input
+              class="formField"
+              name="comment"
+              placeholder="write a comment"
+              type="text"
+              value=""
+            />
+            <button
+              class="btnSubmit"
+              disabled=""
+              type="submit"
+            >
+              Add comment
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
