@@ -30,6 +30,7 @@ export const addNewPost = (payload) => async (dispatch) => {
 };
 
 export const updatePost = (payload) => async (dispatch) => {
+  console.log(payload);
   const posts = await fetch(`http://localhost:3001/posts/${payload.id}`, {
     method: 'PUT',
     mode: 'cors',

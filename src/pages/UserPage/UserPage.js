@@ -1,22 +1,58 @@
-import { NavLink, Route, Routes } from 'react-router-dom';
+/* eslint-disable no-underscore-dangle */
+/* eslint-disable no-unused-vars */
+import {
+  NavLink, Route, Routes, useParams,
+} from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
 import styles from './UserPage.module.scss';
 import defaultAvatar from './default-avatar.jpg';
+import { getUserById } from '../../store/users/actionCreators';
+import Preloaders from './preloaders/Preloaders';
+import FollowBtn from './FollowBtn/FollowBtn';
+import PostSvg from './PostsSvg/PostSvg';
+import SaveSvg from './SaveSvg/SaveSvg';
 
 function UserPage() {
+  const dispatch = useDispatch();
+  const { id } = useParams();
+  const {
+    nik, avatar, name, posts, followBy, _id,
+  } = useSelector((store) => store.users.currentUser);
+  const loggedUser = useSelector((store) => store.users.loggedUser);
+
+  useEffect(() => {
+    dispatch(getUserById(id));
+  }, [dispatch, id]);
+
+  if (!_id) {
+    return (
+      <Preloaders />
+    );
+  }
+
   return (
     <div className={styles.userPage}>
       <div className={styles.header}>
         <div className={styles.avatarImgWrraper}>
-          <img src={defaultAvatar} alt="avatar" className={styles.avatarImg} />
+          <img
+            src={defaultAvatar}
+            alt="avatar"
+            className={styles.avatarImg}
+          />
         </div>
         <div className={styles.headerContent}>
           <div className={styles.headerNicknameWrrapper}>
-            <h1>maximka</h1>
-            <button type="button">Стежити</button>
+            <h1>{nik.toLowerCase()}</h1>
+            <FollowBtn
+              currentUserId={_id}
+              loggedUserId={loggedUser._id}
+              followBy={followBy}
+            />
           </div>
           <ul className={styles.headerUserInfo}>
             <li>
-              <span>9</span>
+              <span>{posts.length}</span>
               дописів
             </li>
             <li>
@@ -24,25 +60,22 @@ function UserPage() {
               читачів
             </li>
             <li>
-              <span>158</span>
-              стежать
+              <span>{followBy.length}</span>
+              стежить
             </li>
           </ul>
+          <div className={styles.fullname}>
+            <h1>{name}</h1>
+          </div>
         </div>
       </div>
       <div className={styles.userPageMenu}>
-        <NavLink end to="/userpage/" exact className={({ isActive }) => (isActive ? `${styles.userPageMenuLinkAcite} ${styles.userPageMenuLink}` : styles.userPageMenuLink)}>
-          <svg aria-label="" className="_ab6-" color="#262626" fill="#262626" height="12" role="img" viewBox="0 0 24 24" width="12">
-            <rect fill="none" height="18" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" width="18" x="3" y="3" />
-            <line fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" x1="9.015" x2="9.015" y1="3" y2="21" />
-            <line fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" x1="14.985" x2="14.985" y1="3" y2="21" />
-            <line fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" x1="21" x2="3" y1="9.015" y2="9.015" />
-            <line fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" x1="21" x2="3" y1="14.985" y2="14.985" />
-          </svg>
+        <NavLink end to="" className={({ isActive }) => (isActive ? `${styles.userPageMenuLinkAcite} ${styles.userPageMenuLink}` : styles.userPageMenuLink)}>
+          <PostSvg />
           <span>ДОПИСИ</span>
         </NavLink>
         <NavLink to="saved" className={({ isActive }) => (isActive ? `${styles.userPageMenuLinkAcite} ${styles.userPageMenuLink}` : styles.userPageMenuLink)}>
-          <svg aria-label="" className="_ab6-" color="#262626" fill="#262626" height="12" role="img" viewBox="0 0 24 24" width="12"><polygon fill="none" points="20 21 12 13.44 4 21 4 3 20 3 20 21" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" /></svg>
+          <SaveSvg />
           <span>ЗБЕРЕЖЕНІ</span>
         </NavLink>
       </div>
@@ -58,6 +91,7 @@ function UserPage() {
             </>
           )}
         />
+        {_id === loggedUser._id && (
         <Route
           path="/saved/"
           element={(
@@ -69,6 +103,7 @@ function UserPage() {
             </>
           )}
         />
+        )}
       </Routes>
     </div>
   );

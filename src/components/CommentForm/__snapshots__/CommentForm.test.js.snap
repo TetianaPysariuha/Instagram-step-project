@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CommentForm snapshot testing Should Modal to render 1`] = `
+<DocumentFragment>
+  <form
+    action="#"
+    class="form"
+  >
+    <input
+      class="formField"
+      name="comment"
+      placeholder="write a comment"
+      type="text"
+      value=""
+    />
+    <button
+      class="btnSubmit"
+      disabled=""
+      type="submit"
+    >
+      Add comment
+    </button>
+  </form>
+</DocumentFragment>
+`;
