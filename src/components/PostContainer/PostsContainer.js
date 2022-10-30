@@ -15,7 +15,7 @@ function PostsContainer(props) {
   const loggedUser = useSelector((store) => store.users.loggedUser);
   const users = useSelector((store) => store.users.users);
 
-  const postsList = posts || postsStore;
+  const postsList = posts || filteredPosts;
   const filteredPosts = postsList.filter((post) => post.userid !== loggedUser._id);
 
   const handleCklickLike = (postId, userId) => {
@@ -106,7 +106,7 @@ function PostsContainer(props) {
 
   return (
     <div className={styles.postContainer}>
-      {filteredPosts.length > 0 && users.length > 0 && filteredPosts.map((post) => getPostElement(post))}
+      {postsList.length > 0 && users.length > 0 && postsList.map((post) => getPostElement(post))}
     </div>
   );
 }
