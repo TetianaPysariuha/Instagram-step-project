@@ -15,8 +15,8 @@ function PostsContainer(props) {
   const loggedUser = useSelector((store) => store.users.loggedUser);
   const users = useSelector((store) => store.users.users);
 
+  const filteredPosts = postsStore.filter((post) => post.userid !== loggedUser._id);
   const postsList = posts || filteredPosts;
-  const filteredPosts = postsList.filter((post) => post.userid !== loggedUser._id);
 
   const handleCklickLike = (postId, userId) => {
     const post = postsList.find((el) => el._id === postId);

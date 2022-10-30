@@ -9,7 +9,7 @@ export const getUsers = () => async (dispatch) => {
 
 export const getUserById = (payload) => async (dispatch) => {
   const user = await fetch(`http://localhost:3001/users/${payload}`).then((res) => res.json()).then((data) => data.data);
-  dispatch({ type: GET_UDER_BY_ID, payload: user });
+  dispatch({ type: GET_USER_BY_ID, payload: user });
 };
 
 export const addNewUser = (payload) => async (dispatch) => {
