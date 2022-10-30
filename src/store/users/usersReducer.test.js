@@ -1,6 +1,6 @@
 import reduser from './reducer';
 import {
-  GET_USERS, GET_UDER_BY_ID, ADD_USER, UPDATE_USER, DELETE_USER,
+  GET_USERS, GET_USER_BY_ID, ADD_USER, UPDATE_USER, DELETE_USER,
 } from './actiions';
 
 const initialState = {
@@ -30,7 +30,7 @@ const addUser = {
 const getUserById = {
   users: [],
   currentUser: {
-    nik: 'GET_UDER_BY_ID',
+    nik: 'GET_USER_BY_ID',
   },
   loggedUser: {
     _id: '635429e5461d59d5a106db66',
@@ -94,11 +94,11 @@ describe('Reducers testing', () => {
     }))).toEqual(JSON.stringify(addUser));
   });
 
-  test('Should return with action GET_UDER_BY_ID', () => {
+  test('Should return with action GET_USER_BY_ID', () => {
     expect(JSON.stringify(reduser(undefined, {
-      type: GET_UDER_BY_ID,
+      type: GET_USER_BY_ID,
       payload: {
-        nik: 'GET_UDER_BY_ID',
+        nik: 'GET_USER_BY_ID',
       },
     }))).toEqual(JSON.stringify(getUserById));
   });

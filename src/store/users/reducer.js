@@ -1,5 +1,5 @@
 import {
-  GET_USERS, GET_UDER_BY_ID, ADD_USER, UPDATE_USER, DELETE_USER,
+  GET_USERS, GET_USER_BY_ID, ADD_USER, UPDATE_USER, DELETE_USER,
 } from './actiions';
 
 const initialState = {
@@ -20,7 +20,7 @@ const usersReducer = (state = initialState, action) => {
     case GET_USERS: {
       return { ...state, users: action.payload };
     }
-    case GET_UDER_BY_ID: {
+    case GET_USER_BY_ID: {
       return { ...state, currentUser: action.payload };
     }
     case ADD_USER: {

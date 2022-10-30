@@ -1,11 +1,12 @@
 import reduser from './reducer';
 import {
-  GET_POSTS, GET_POST_BY_ID, GET_POSTS_BY_USER_ID, ADD_POST, UPDATE_POST, DELETE_POST,
+  GET_POSTS, GET_POST_BY_ID, GET_POSTS_BY_USER_ID, ADD_POST, UPDATE_POST, DELETE_POST, SHOW_MORE_CHANGE,
 } from './actiions';
 
 const initialState = {
   posts: [],
   currentPost: {},
+  showMoreComments: [],
 };
 
 const addPost = {
@@ -13,6 +14,7 @@ const addPost = {
     title: 'ADD_POST',
   }],
   currentPost: {},
+  showMoreComments: [],
 };
 
 const getPostById = {
@@ -20,6 +22,7 @@ const getPostById = {
   currentPost: {
     title: 'GET_POST_BY_ID',
   },
+  showMoreComments: [],
 };
 
 const getPostByUserId = {
@@ -27,6 +30,7 @@ const getPostByUserId = {
   currentPost: {
     title: 'GET_POSTS_BY_USER_ID',
   },
+  showMoreComments: [],
 };
 
 const getPosts = {
@@ -34,6 +38,7 @@ const getPosts = {
     title: 'GET_POSTS',
   }],
   currentPost: {},
+  showMoreComments: [],
 };
 
 const updatePost = {
@@ -41,6 +46,7 @@ const updatePost = {
     title: 'UPDATE_POST',
   }],
   currentPost: {},
+  showMoreComments: [],
 };
 
 const deletePost = {
@@ -48,6 +54,13 @@ const deletePost = {
     title: 'DELETE_POST',
   }],
   currentPost: {},
+  showMoreComments: [],
+};
+
+const showMoreChange = {
+  posts: [],
+  currentPost: {},
+  showMoreComments: [1],
 };
 
 describe('Reducers testing', () => {
@@ -108,5 +121,12 @@ describe('Reducers testing', () => {
         title: 'DELETE_POST',
       }],
     }))).toEqual(JSON.stringify(deletePost));
+  });
+
+  test('Should return with action SHOW_MORE_CHANGE', () => {
+    expect(JSON.stringify(reduser(undefined, {
+      type: SHOW_MORE_CHANGE,
+      payload: { postId: 1 },
+    }))).toEqual(JSON.stringify(showMoreChange));
   });
 });
