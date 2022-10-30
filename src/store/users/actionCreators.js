@@ -1,5 +1,5 @@
 import {
-  GET_USERS, GET_UDER_BY_ID, ADD_USER, UPDATE_USER, DELETE_USER,
+  GET_USERS, GET_USER_BY_ID, ADD_USER, UPDATE_USER, DELETE_USER,
 } from './actiions';
 
 export const getUsers = () => async (dispatch) => {
