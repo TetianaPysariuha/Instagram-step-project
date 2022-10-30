@@ -1,5 +1,5 @@
 import {
-  GET_USERS, GET_USER_BY_ID, ADD_USER, UPDATE_USER, DELETE_USER,
+  GET_USERS, GET_USER_BY_ID, ADD_USER, UPDATE_USER, DELETE_USER, GET_SUBSCRIBERS_BY_USER_ID,
 } from './actiions';
 
 const initialState = {
@@ -7,10 +7,11 @@ const initialState = {
   currentUser: {},
   loggedUser: {
     _id: '635429e5461d59d5a106db66',
-    avatar: 'E:\\DANIT\\Homework\\homework\\React\\HW2_react\\musica\\public\\img\\star_add.png',
+    avatar: './images/3.jpg',
     nik: 'Milda',
     name: 'Patrisia Mumamba',
   },
+  subscribers: [],
 };
 
 // the rule is switched off because state shoul be first in props
@@ -33,6 +34,9 @@ const usersReducer = (state = initialState, action) => {
     }
     case DELETE_USER: {
       return { ...state, users: action.payload };
+    }
+    case GET_SUBSCRIBERS_BY_USER_ID: {
+      return { ...state, subscribers: action.payload };
     }
     default: {
       return state;
