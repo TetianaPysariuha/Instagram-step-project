@@ -1,5 +1,5 @@
 import {
-  GET_USERS, GET_USER_BY_ID, ADD_USER, UPDATE_USER, DELETE_USER,
+  GET_USERS, GET_USER_BY_ID, ADD_USER, UPDATE_USER, DELETE_USER, GET_SUBSCRIBERS_BY_USER_ID,
 } from './actiions';
 
 export const getUsers = () => async (dispatch) => {
@@ -43,4 +43,9 @@ export const deleteUser = (payload) => async (dispatch) => {
     headers: { 'Content-Type': 'aplication/json' },
   }).then((res) => res.json()).then((data) => data.data);
   dispatch({ type: DELETE_USER, payload: users });
+};
+
+export const getSubscribersByUserId = (payload) => async (dispatch) => {
+  const subscribers = await fetch(`http://localhost:3001/users/${payload}`).then((res) => res.json()).then((data) => data.data);
+  dispatch({ type: GET_SUBSCRIBERS_BY_USER_ID, payload: subscribers });
 };
