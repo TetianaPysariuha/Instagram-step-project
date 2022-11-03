@@ -9,23 +9,20 @@ import { getUsers } from './store/users/actionCreators';
 import styles from './App.module.scss';
 import UserPage from './pages/UserPage/UserPage';
 import Header from './components/Header/Header';
+import Post from './components/Post/Post';
 
 function App() {
   const { isOpenModal } = useSelector((store) => store.modal);
-  /*   const { posts } = useSelector((store) => store.posts);
-  const { users } = useSelector((store) => store.users); */
 
   const dispatch = useDispatch();
+  const posts = useSelector((store) => store.posts);
 
   useEffect(() => {
     dispatch(getPosts());
     dispatch(getUsers());
   }, [dispatch]);
 
-  /*   useEffect(() => {
-    console.log(posts);
-    console.log(users);
-  }, [posts, users]); */
+  console.log(posts);
 
   return (
     <div className={styles.body}>
@@ -48,7 +45,7 @@ function App() {
       />
       <UserName /> */}
       <Routes>
-        <Route path="/" element={<h1>MAIN</h1>} />
+        <Route path="/" element={<Post />} />
         <Route path="/userpage/:id/*" element={<UserPage />} />
       </Routes>
     </div>
@@ -56,27 +53,3 @@ function App() {
 }
 
 export default App;
-
-/* <div className={styles.postContainier}>
-      <div className={styles.postWrapper}>
-        <UserName image="./images/1.jpg" nickname="Nick" additionalString="addstring" />
-        <img className={styles.maneFoto} src="./images/post1.jpeg" alt="foto" />
-        <div className={styles.buttonBox}>
-          <div>
-            <img src="./images/heart-white.svg" alt="like" />
-            <img src="./images/comment.svg" alt="comment" />
-          </div>
-          <img src="./images/favorite.svg" alt="favorite" />
-        </div>
-        <div className={styles.commentBox}>
-          <div className={styles.comments}>
-            <p>Comment1</p>
-            {isMore && <button type="button" className={styles.showMoreBtn} onClick={() => {}}>--------------Show more comments--------------</button>}
-          </div>
-          <div className={styles.addComment}>
-            <input type="text" />
-            <button type="button" className={styles.showMoreBtn} onClick={() => {}}>Add comment</button>
-          </div>
-        </div>
-      </div>
-    </div> */

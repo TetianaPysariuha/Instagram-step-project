@@ -5,14 +5,14 @@ import CommentForm from '../CommentForm/CommentForm';
 
 function Post(props) {
   const {
-    postId, userName, maneImg, title, isLiked, handleCklickLike, handleCklickComments, isFavorite, handleCklickFavorite, comments, isMore, handleCklickShowMore,
+    postId, userName, mainImg, title, description, isLiked, handleCklickLike, handleCklickComments, isFavorite, handleCklickFavorite, comments, isMore, handleCklickShowMore,
   } = props;
 
   return (
-    <div className={styles.postContainier}>
+    <div key={postId} className={styles.postContainier}>
       <div className={styles.postWrapper}>
         {userName}
-        <img className={styles.maneFoto} src={maneImg} onDoubleClick={handleCklickLike} alt={title} />
+        <img className={styles.maneFoto} src={mainImg} onDoubleClick={handleCklickLike} alt={title} />
         <div className={styles.buttonBox}>
           <div className={styles.groupBtn}>
             <img src={isLiked ? './images/heart-red.svg' : './images/heart-white.svg'} onClick={handleCklickLike} alt={isLiked ? 'liked' : 'not liked'} data-testid="likeBtn" />
@@ -20,10 +20,11 @@ function Post(props) {
           </div>
           <img src={isFavorite ? './images/favorite-marked.svg' : './images/favorite.svg'} onClick={handleCklickFavorite} alt="favorite" data-testid="favoriteBtn" />
         </div>
+        <p className={styles.description}>{description}</p>
         <div className={styles.commentBox}>
           <div className={styles.comments}>
             {comments}
-            {isMore && <button type="button" className={styles.showMoreBtn} onClick={handleCklickShowMore}>--------------Show more comments--------------</button>}
+            <button type="button" className={styles.showMoreBtn} onClick={handleCklickShowMore}>{isMore ? '--------------Show more comments--------------' : '--------------Show less comments--------------'}</button>
           </div>
           <div className={styles.addComment}>
             <CommentForm postId={postId} />
@@ -37,8 +38,9 @@ function Post(props) {
 Post.prototype = {
   postId: PropTypes.string.isRequired,
   userName: PropTypes.element.isRequired,
-  maneImg: PropTypes.string.isRequired,
+  mainImg: PropTypes.string.isRequired,
   title: PropTypes.string,
+  description: PropTypes.string,
   isLiked: PropTypes.bool,
   handleCklickLike: PropTypes.func,
   handleCklickComments: PropTypes.func,
@@ -51,6 +53,7 @@ Post.prototype = {
 
 Post.defaultProps = {
   title: '',
+  description: '',
   isLiked: false,
   handleCklickLike: () => {},
   handleCklickComments: () => {},

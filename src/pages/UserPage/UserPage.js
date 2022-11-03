@@ -7,11 +7,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import styles from './UserPage.module.scss';
 import defaultAvatar from './default-avatar.jpg';
-import { getUserById } from '../../store/users/actionCreators';
+import { getSubscribersByUserId, getUserById } from '../../store/users/actionCreators';
 import Preloaders from './preloaders/Preloaders';
 import FollowBtn from './FollowBtn/FollowBtn';
 import PostSvg from './PostsSvg/PostSvg';
 import SaveSvg from './SaveSvg/SaveSvg';
+import UserPostContainer from './UserPostContainer/UserPostContainer';
 
 function UserPage() {
   const dispatch = useDispatch();
@@ -19,10 +20,12 @@ function UserPage() {
   const {
     nik, avatar, name, posts, followBy, _id,
   } = useSelector((store) => store.users.currentUser);
+  const followers = useSelector((store) => store.users.subscribers);
   const loggedUser = useSelector((store) => store.users.loggedUser);
 
   useEffect(() => {
     dispatch(getUserById(id));
+    dispatch(getSubscribersByUserId(id));
   }, [dispatch, id]);
 
   if (!_id) {
@@ -30,6 +33,8 @@ function UserPage() {
       <Preloaders />
     );
   }
+
+  console.log(posts);
 
   return (
     <div className={styles.userPage}>
@@ -56,7 +61,7 @@ function UserPage() {
               дописів
             </li>
             <li>
-              <span>148</span>
+              <span>{followers.length}</span>
               читачів
             </li>
             <li>
@@ -83,12 +88,7 @@ function UserPage() {
         <Route
           path="/"
           element={(
-            <>
-              <h1>posts</h1>
-              <h1>posts</h1>
-              <h1>posts</h1>
-              <h1>posts</h1>
-            </>
+            <UserPostContainer posts={posts} />
           )}
         />
         {_id === loggedUser._id && (

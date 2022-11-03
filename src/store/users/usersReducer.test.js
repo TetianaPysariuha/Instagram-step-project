@@ -1,6 +1,6 @@
 import reduser from './reducer';
 import {
-  GET_USERS, GET_UDER_BY_ID, ADD_USER, UPDATE_USER, DELETE_USER,
+  GET_USERS, GET_USER_BY_ID, ADD_USER, UPDATE_USER, DELETE_USER, GET_SUBSCRIBERS_BY_USER_ID,
 } from './actiions';
 
 const initialState = {
@@ -8,10 +8,11 @@ const initialState = {
   currentUser: {},
   loggedUser: {
     _id: '635429e5461d59d5a106db66',
-    avatar: 'E:\\DANIT\\Homework\\homework\\React\\HW2_react\\musica\\public\\img\\star_add.png',
+    avatar: './images/3.jpg',
     nik: 'Milda',
     name: 'Patrisia Mumamba',
   },
+  subscribers: [],
 };
 
 const addUser = {
@@ -21,23 +22,25 @@ const addUser = {
   currentUser: {},
   loggedUser: {
     _id: '635429e5461d59d5a106db66',
-    avatar: 'E:\\DANIT\\Homework\\homework\\React\\HW2_react\\musica\\public\\img\\star_add.png',
+    avatar: './images/3.jpg',
     nik: 'Milda',
     name: 'Patrisia Mumamba',
   },
+  subscribers: [],
 };
 
 const getUserById = {
   users: [],
   currentUser: {
-    nik: 'GET_UDER_BY_ID',
+    nik: 'GET_USER_BY_ID',
   },
   loggedUser: {
     _id: '635429e5461d59d5a106db66',
-    avatar: 'E:\\DANIT\\Homework\\homework\\React\\HW2_react\\musica\\public\\img\\star_add.png',
+    avatar: './images/3.jpg',
     nik: 'Milda',
     name: 'Patrisia Mumamba',
   },
+  subscribers: [],
 };
 
 const getUsers = {
@@ -47,10 +50,11 @@ const getUsers = {
   currentUser: {},
   loggedUser: {
     _id: '635429e5461d59d5a106db66',
-    avatar: 'E:\\DANIT\\Homework\\homework\\React\\HW2_react\\musica\\public\\img\\star_add.png',
+    avatar: './images/3.jpg',
     nik: 'Milda',
     name: 'Patrisia Mumamba',
   },
+  subscribers: [],
 };
 
 const updateUser = {
@@ -60,10 +64,11 @@ const updateUser = {
   currentUser: {},
   loggedUser: {
     _id: '635429e5461d59d5a106db66',
-    avatar: 'E:\\DANIT\\Homework\\homework\\React\\HW2_react\\musica\\public\\img\\star_add.png',
+    avatar: './images/3.jpg',
     nik: 'Milda',
     name: 'Patrisia Mumamba',
   },
+  subscribers: [],
 };
 
 const deleteUser = {
@@ -73,10 +78,23 @@ const deleteUser = {
   currentUser: {},
   loggedUser: {
     _id: '635429e5461d59d5a106db66',
-    avatar: 'E:\\DANIT\\Homework\\homework\\React\\HW2_react\\musica\\public\\img\\star_add.png',
+    avatar: './images/3.jpg',
     nik: 'Milda',
     name: 'Patrisia Mumamba',
   },
+  subscribers: [],
+};
+
+const getSubscribersByUserId = {
+  users: [],
+  currentUser: {},
+  loggedUser: {
+    _id: '635429e5461d59d5a106db66',
+    avatar: './images/3.jpg',
+    nik: 'Milda',
+    name: 'Patrisia Mumamba',
+  },
+  subscribers: [{ nik: 'GET_SUBSCRIBERS_BY_USER_ID' }],
 };
 
 describe('Reducers testing', () => {
@@ -94,11 +112,11 @@ describe('Reducers testing', () => {
     }))).toEqual(JSON.stringify(addUser));
   });
 
-  test('Should return with action GET_UDER_BY_ID', () => {
+  test('Should return with action GET_USER_BY_ID', () => {
     expect(JSON.stringify(reduser(undefined, {
-      type: GET_UDER_BY_ID,
+      type: GET_USER_BY_ID,
       payload: {
-        nik: 'GET_UDER_BY_ID',
+        nik: 'GET_USER_BY_ID',
       },
     }))).toEqual(JSON.stringify(getUserById));
   });
@@ -128,5 +146,14 @@ describe('Reducers testing', () => {
         nik: 'DELETE_USER',
       }],
     }))).toEqual(JSON.stringify(deleteUser));
+  });
+
+  test('Should return with action GET_SUBSCRIBERS_BY_USER_ID', () => {
+    expect(JSON.stringify(reduser(undefined, {
+      type: GET_SUBSCRIBERS_BY_USER_ID,
+      payload: [{
+        nik: 'GET_SUBSCRIBERS_BY_USER_ID',
+      }],
+    }))).toEqual(JSON.stringify(getSubscribersByUserId));
   });
 });

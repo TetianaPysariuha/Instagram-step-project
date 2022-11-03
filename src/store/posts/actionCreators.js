@@ -1,5 +1,5 @@
 import {
-  GET_POSTS, GET_POST_BY_ID, GET_POSTS_BY_USER_ID, ADD_POST, UPDATE_POST, DELETE_POST,
+  GET_POSTS, GET_POST_BY_ID, GET_POSTS_BY_USER_ID, ADD_POST, UPDATE_POST, DELETE_POST, SHOW_MORE_CHANGE,
 } from './actiions';
 
 export const getPosts = () => async (dispatch) => {
@@ -30,7 +30,6 @@ export const addNewPost = (payload) => async (dispatch) => {
 };
 
 export const updatePost = (payload) => async (dispatch) => {
-  console.log(payload);
   const posts = await fetch(`http://localhost:3001/posts/${payload.id}`, {
     method: 'PUT',
     mode: 'cors',
@@ -50,3 +49,5 @@ export const deletePost = (payload) => async (dispatch) => {
   }).then((res) => res.json()).then((data) => data.data);
   dispatch({ type: DELETE_POST, payload: posts });
 };
+
+export const showMoreChange = (payload) => ({ type: SHOW_MORE_CHANGE, payload });
