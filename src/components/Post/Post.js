@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 import styles from './Post.module.scss';
 import CommentForm from '../CommentForm/CommentForm';
@@ -64,4 +64,4 @@ Post.defaultProps = {
   handleCklickShowMore: () => {},
 };
 
-export default Post;
+export default memo(Post);

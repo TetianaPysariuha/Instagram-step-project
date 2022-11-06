@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { memo } from 'react';
 import styles from './UserName.module.scss';
 import defaultAvatar from './default-avatar.jpg';
 
@@ -38,4 +39,4 @@ UserName.defaultProps = {
   additionalStringFunc: () => {},
 };
 
-export default UserName;
+export default memo(UserName);

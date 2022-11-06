@@ -1,5 +1,6 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-underscore-dangle */
-import React from 'react';
+import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import styles from './PostsContainer.module.scss';
@@ -15,8 +16,7 @@ function PostsContainer(props) {
   const loggedUser = useSelector((store) => store.users.loggedUser);
   const users = useSelector((store) => store.users.users);
 
-  const filteredPosts = postsStore.filter((post) => post.userid !== loggedUser._id);
-  const postsList = posts || filteredPosts;
+  const postsList = posts || postsStore;
 
   const handleCklickLike = (postId, userId) => {
     const post = postsList.find((el) => el._id === postId);
@@ -141,4 +141,4 @@ Post.defaultProps = {
   posts: [],
 };
 
-export default PostsContainer;
+export default memo(PostsContainer);

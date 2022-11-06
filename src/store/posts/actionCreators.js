@@ -1,10 +1,24 @@
 import {
-  GET_POSTS, GET_POST_BY_ID, GET_POSTS_BY_USER_ID, ADD_POST, UPDATE_POST, DELETE_POST, SHOW_MORE_CHANGE,
+  GET_POSTS, GET_POST_BY_ID, GET_POSTS_BY_USER_ID, ADD_POST, UPDATE_POST, DELETE_POST, SHOW_MORE_CHANGE, GET_NEW_PAGE_POSTS, CLEAR_POSTS, GET_FAVORITE_POSTS,
 } from './actiions';
 
 export const getPosts = () => async (dispatch) => {
   const posts = await fetch('http://localhost:3001/posts').then((res) => res.json()).then((data) => data.data);
   dispatch({ type: GET_POSTS, payload: posts });
+};
+
+export const clearPosts = () => {
+  dispatch({ type: CLEAR_POSTS });
+};
+
+export const loadNewPagePosts = (payload) => async (dispatch) => {
+  console.log(payload);
+  if (payload.start !== null && payload.end && payload.userId) {
+    const response = await fetch(`http://localhost:3001/posts/quantity/${payload.start}&${payload.end}&${payload.userId}`).then((res) => res.json()).then((data) => data);
+    dispatch({ type: GET_NEW_PAGE_POSTS, payload: { data: response.data, countAll: response.totalCount } });
+  } else {
+    console.error(`For loafing posts should be start, end and userId parametres. Received: start=${payload.start},  end=${payload.end}, userId=${payload.userId}`);
+  }
 };
 
 export const getPostById = (payload) => async (dispatch) => {
@@ -30,24 +44,29 @@ export const addNewPost = (payload) => async (dispatch) => {
 };
 
 export const updatePost = (payload) => async (dispatch) => {
-  const posts = await fetch(`http://localhost:3001/posts/${payload.id}`, {
+  const post = await fetch(`http://localhost:3001/posts/${payload.id}`, {
     method: 'PUT',
     mode: 'cors',
     headers: {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(payload.data),
-  }).then((res) => res.json()).then((data) => data.data);
-  dispatch({ type: UPDATE_POST, payload: posts });
+  }).then((res) => res.json()).then((data) => data);
+  dispatch({ type: UPDATE_POST, payload: post });
 };
 
 export const deletePost = (payload) => async (dispatch) => {
-  const posts = await fetch(`http://localhost:3001/posts/${payload}`, {
+  const post = await fetch(`http://localhost:3001/posts/${payload}`, {
     method: 'DELETE',
     mode: 'cors',
     headers: { 'Content-Type': 'aplication/json' },
   }).then((res) => res.json()).then((data) => data.data);
-  dispatch({ type: DELETE_POST, payload: posts });
+  dispatch({ type: DELETE_POST, payload: post });
 };
 
 export const showMoreChange = (payload) => ({ type: SHOW_MORE_CHANGE, payload });
+
+export const getFavoritePostsByUserId = (payload) => async (dispatch) => {
+  const posts = await fetch(`http://localhost:3001/posts/favorite/${payload}`).then((res) => res.json()).then((data) => data.data);
+  dispatch({ type: GET_FAVORITE_POSTS, payload: posts });
+};
