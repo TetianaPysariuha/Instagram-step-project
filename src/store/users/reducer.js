@@ -1,16 +1,11 @@
 import {
-  GET_USERS, GET_USER_BY_ID, ADD_USER, UPDATE_USER, DELETE_USER, GET_SUBSCRIBERS_BY_USER_ID,
+  LOGGING_USER, GET_USERS, GET_USER_BY_ID, ADD_USER, UPDATE_USER, DELETE_USER, GET_SUBSCRIBERS_BY_USER_ID,
 } from './actiions';
 
 const initialState = {
   users: [],
   currentUser: {},
-  loggedUser: {
-    _id: '635429e5461d59d5a106db66',
-    avatar: './images/3.jpg',
-    nik: 'Milda',
-    name: 'Patrisia Mumamba',
-  },
+  loggedUser: {},
   subscribers: [],
 };
 
@@ -18,6 +13,11 @@ const initialState = {
 // eslint-disable-next-line default-param-last
 const usersReducer = (state = initialState, action) => {
   switch (action.type) {
+    case LOGGING_USER: {
+      // eslint-disable-next-line no-unused-vars
+      const { posts, __v, ...other } = action.payload;
+      return { ...state, loggedUser: other };
+    }
     case GET_USERS: {
       return { ...state, users: action.payload };
     }

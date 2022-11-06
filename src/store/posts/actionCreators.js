@@ -7,17 +7,14 @@ export const getPosts = () => async (dispatch) => {
   dispatch({ type: GET_POSTS, payload: posts });
 };
 
-export const clearPosts = () => {
-  dispatch({ type: CLEAR_POSTS });
-};
+export const clearPosts = () => ({ type: CLEAR_POSTS });
 
 export const loadNewPagePosts = (payload) => async (dispatch) => {
-  console.log(payload);
-  if (payload.start !== null && payload.end && payload.userId) {
-    const response = await fetch(`http://localhost:3001/posts/quantity/${payload.start}&${payload.end}&${payload.userId}`).then((res) => res.json()).then((data) => data);
+  if (payload.start !== null && payload.end) {
+    const response = await fetch(`http://localhost:3001/posts/quantity/${payload.start}&${payload.end}`).then((res) => res.json()).then((data) => data);
     dispatch({ type: GET_NEW_PAGE_POSTS, payload: { data: response.data, countAll: response.totalCount } });
   } else {
-    console.error(`For loafing posts should be start, end and userId parametres. Received: start=${payload.start},  end=${payload.end}, userId=${payload.userId}`);
+    console.error(`For loafing posts should be start, end and userId parametres. Received: start=${payload.start},  end=${payload.end}`);
   }
 };
 

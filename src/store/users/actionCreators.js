@@ -1,6 +1,11 @@
 import {
-  GET_USERS, GET_USER_BY_ID, ADD_USER, UPDATE_USER, DELETE_USER, GET_SUBSCRIBERS_BY_USER_ID,
+  LOGGING_USER, GET_USERS, GET_USER_BY_ID, ADD_USER, UPDATE_USER, DELETE_USER, GET_SUBSCRIBERS_BY_USER_ID,
 } from './actiions';
+
+export const loggedUserReceiveData = (payload) => async (dispatch) => {
+  const user = await fetch(`http://localhost:3001/users/${payload}`).then((res) => res.json()).then((data) => data.data);
+  dispatch({ type: LOGGING_USER, payload: user });
+};
 
 export const getUsers = () => async (dispatch) => {
   const users = await fetch('http://localhost:3001/users').then((res) => res.json()).then((data) => data.data);

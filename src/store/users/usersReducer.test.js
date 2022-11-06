@@ -1,17 +1,60 @@
 import reduser from './reducer';
 import {
-  GET_USERS, GET_USER_BY_ID, ADD_USER, UPDATE_USER, DELETE_USER, GET_SUBSCRIBERS_BY_USER_ID,
+  LOGGING_USER, GET_USERS, GET_USER_BY_ID, ADD_USER, UPDATE_USER, DELETE_USER, GET_SUBSCRIBERS_BY_USER_ID,
 } from './actiions';
 
-const initialState = {
+const user = {
+  _id: '635429e5461d59d5a106db66',
+  avatar: 'https://res.cloudinary.com/dx84fdyhd/image/upload/v1667755687/instagram/avatar/1_wfz4lc.jpg',
+  nik: 'Milda',
+  name: 'Patrisia Mumamba',
+  followBy: [
+    '6355802bab5157181c8ed0d2',
+    '6355802bab5157181c8ed0d4',
+    '6355802bab5157181c8ed0d5',
+    '6355802bab5157181c8ed0d3',
+    '635ad2dece62ea7848f38ea9',
+    '6355802bab5157181c8ed0da',
+  ],
+  __v: 0,
+  posts: [{
+    _id: '63558b3d161b35a6d8b4d9ff',
+    img: 'https://res.cloudinary.com/dx84fdyhd/image/upload/v1667755090/instagram/post14_dmu9vm.jpg',
+    userid: '635429e5461d59d5a106db66',
+    title: 'Some post for deleting user',
+    description: 'Some description about post',
+    likes: [],
+    favorite: [],
+    comments: [],
+    seeCount: 999,
+    __v: 0,
+  }],
+};
+
+const logedUser = {
   users: [],
   currentUser: {},
   loggedUser: {
     _id: '635429e5461d59d5a106db66',
-    avatar: './images/3.jpg',
+    avatar: 'https://res.cloudinary.com/dx84fdyhd/image/upload/v1667755687/instagram/avatar/1_wfz4lc.jpg',
     nik: 'Milda',
     name: 'Patrisia Mumamba',
+    followBy: [
+      '6355802bab5157181c8ed0d2',
+      '6355802bab5157181c8ed0d4',
+      '6355802bab5157181c8ed0d5',
+      '6355802bab5157181c8ed0d3',
+      '635ad2dece62ea7848f38ea9',
+      '6355802bab5157181c8ed0da',
+    ],
   },
+  subscribers: [],
+};
+
+const initialState = {
+  users: [],
+  currentUser: {},
+  loggedUser: {},
   subscribers: [],
 };
 
@@ -20,12 +63,7 @@ const addUser = {
     nik: 'ADD_USER',
   }],
   currentUser: {},
-  loggedUser: {
-    _id: '635429e5461d59d5a106db66',
-    avatar: './images/3.jpg',
-    nik: 'Milda',
-    name: 'Patrisia Mumamba',
-  },
+  loggedUser: {},
   subscribers: [],
 };
 
@@ -34,12 +72,7 @@ const getUserById = {
   currentUser: {
     nik: 'GET_USER_BY_ID',
   },
-  loggedUser: {
-    _id: '635429e5461d59d5a106db66',
-    avatar: './images/3.jpg',
-    nik: 'Milda',
-    name: 'Patrisia Mumamba',
-  },
+  loggedUser: {},
   subscribers: [],
 };
 
@@ -48,12 +81,7 @@ const getUsers = {
     nik: 'GET_USERS',
   }],
   currentUser: {},
-  loggedUser: {
-    _id: '635429e5461d59d5a106db66',
-    avatar: './images/3.jpg',
-    nik: 'Milda',
-    name: 'Patrisia Mumamba',
-  },
+  loggedUser: {},
   subscribers: [],
 };
 
@@ -62,12 +90,7 @@ const updateUser = {
     nik: 'UPDATE_USER',
   }],
   currentUser: {},
-  loggedUser: {
-    _id: '635429e5461d59d5a106db66',
-    avatar: './images/3.jpg',
-    nik: 'Milda',
-    name: 'Patrisia Mumamba',
-  },
+  loggedUser: {},
   subscribers: [],
 };
 
@@ -76,24 +99,14 @@ const deleteUser = {
     nik: 'DELETE_USER',
   }],
   currentUser: {},
-  loggedUser: {
-    _id: '635429e5461d59d5a106db66',
-    avatar: './images/3.jpg',
-    nik: 'Milda',
-    name: 'Patrisia Mumamba',
-  },
+  loggedUser: {},
   subscribers: [],
 };
 
 const getSubscribersByUserId = {
   users: [],
   currentUser: {},
-  loggedUser: {
-    _id: '635429e5461d59d5a106db66',
-    avatar: './images/3.jpg',
-    nik: 'Milda',
-    name: 'Patrisia Mumamba',
-  },
+  loggedUser: {},
   subscribers: [{ nik: 'GET_SUBSCRIBERS_BY_USER_ID' }],
 };
 
@@ -155,5 +168,12 @@ describe('Reducers testing', () => {
         nik: 'GET_SUBSCRIBERS_BY_USER_ID',
       }],
     }))).toEqual(JSON.stringify(getSubscribersByUserId));
+  });
+
+  test('Should return with action LOGGING_USER', () => {
+    expect(JSON.stringify(reduser(undefined, {
+      type: LOGGING_USER,
+      payload: user,
+    }))).toEqual(JSON.stringify(logedUser));
   });
 });
