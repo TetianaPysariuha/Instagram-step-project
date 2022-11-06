@@ -13,6 +13,7 @@ import FollowBtn from './FollowBtn/FollowBtn';
 import PostSvg from './PostsSvg/PostSvg';
 import SaveSvg from './SaveSvg/SaveSvg';
 import UserPostContainer from './UserPostContainer/UserPostContainer';
+import { getFavoritePostsByUserId } from '../../store/posts/actionCreators';
 
 function UserPage() {
   const dispatch = useDispatch();
@@ -22,10 +23,12 @@ function UserPage() {
   } = useSelector((store) => store.users.currentUser);
   const followers = useSelector((store) => store.users.subscribers);
   const loggedUser = useSelector((store) => store.users.loggedUser);
+  const favorite = useSelector((store) => store.posts.favorites);
 
   useEffect(() => {
     dispatch(getUserById(id));
     dispatch(getSubscribersByUserId(id));
+    dispatch(getFavoritePostsByUserId(id));
   }, [dispatch, id]);
 
   if (!_id) {
@@ -39,7 +42,7 @@ function UserPage() {
       <div className={styles.header}>
         <div className={styles.avatarImgWrraper}>
           <img
-            src={defaultAvatar}
+            src={avatar}
             alt="avatar"
             className={styles.avatarImg}
           />
@@ -95,7 +98,7 @@ function UserPage() {
         <Route
           path="/saved/"
           element={(
-            <h1>saved</h1>
+            <UserPostContainer posts={favorite} />
           )}
         />
         )}

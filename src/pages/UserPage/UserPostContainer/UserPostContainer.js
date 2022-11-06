@@ -1,16 +1,25 @@
-/* eslint-disable no-underscore-dangle */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
+import { openModalAC } from '../../../store/modal/actionCreators';
 import styles from './UserPostContainer.module.scss';
+import Post from '../../../components/Post/Post';
 
 function UserPostContainer({ posts }) {
+  const dispatch = useDispatch();
   return (
     <ul className={styles.list}>
       {posts.map(({
         _id, img, likes, comments,
       }) => (
         <li className={styles.listItem} key={_id}>
-          <div className={styles.post}>
-            <img className={styles.postImg} src={img} alt="post" />
+          <div
+            onClick={() => {
+              dispatch(openModalAC(<Post />));
+            }}
+            className={styles.post}
+          >
+            <div className={styles.image} style={{ backgroundImage: `url(${img})` }} />
             <div className={styles.postHoverBG}>
               <div className={styles.postHover}>
                 <div className={styles.counterWrraper}>

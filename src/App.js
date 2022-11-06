@@ -1,10 +1,11 @@
+/* eslint-disable jsx-a11y/control-has-associated-label */
 /* eslint-disable no-underscore-dangle */
 import React, { useEffect } from 'react';
 import './App.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { Routes, Route } from 'react-router-dom';
 import Modal from './components/Modal/Modal';
-import { getPosts } from './store/posts/actionCreators';
+// import { loadNewPagePosts /* getFavoritePostsByUserId  */ } from './store/posts/actionCreators';
 import { getUsers } from './store/users/actionCreators';
 import styles from './App.module.scss';
 import UserPage from './pages/UserPage/UserPage';
@@ -17,8 +18,10 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getPosts());
+    // dispatch(loadNewPagePosts({ start: 0, end: postsOnPage, userId: loggedUser._id }));
+    // dispatch(loadNewPagePosts({ start: 3, end: 6/* , userId: loggedUser._id */ }));
     dispatch(getUsers());
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch]);
 
   return (
