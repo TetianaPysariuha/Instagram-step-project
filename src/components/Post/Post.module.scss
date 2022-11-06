@@ -1,7 +1,10 @@
 .postContainier{
+    min-width: 300px;
+    max-width: 450px;
     width: 60%;
     border: 3px solid rgba($color: gray, $alpha: 0.3);
     margin: 30px auto;
+    border-radius: 15px;
 }
 .postWrapper{
     width: 100%;

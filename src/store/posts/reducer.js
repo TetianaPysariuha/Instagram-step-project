@@ -1,11 +1,16 @@
+/* eslint-disable no-underscore-dangle */
 import {
-  GET_POSTS, GET_POST_BY_ID, GET_POSTS_BY_USER_ID, ADD_POST, UPDATE_POST, DELETE_POST, SHOW_MORE_CHANGE,
+  GET_POSTS, GET_POST_BY_ID, GET_POSTS_BY_USER_ID, ADD_POST, UPDATE_POST, DELETE_POST, SHOW_MORE_CHANGE, GET_NEW_PAGE_POSTS, CLEAR_POSTS, GET_FAVORITE_POSTS,
 } from './actiions';
 
 const initialState = {
   posts: [],
   currentPost: {},
   showMoreComments: [],
+  page: 0,
+  postsOnPage: 3,
+  totalPostsOnServer: 0,
+  favorites: [],
 };
 
 // the rule is switched off because state shoul be first in props
@@ -15,22 +20,50 @@ const postsReduser = (state = initialState, action) => {
     case GET_POSTS: {
       return { ...state, posts: action.payload };
     }
+    case CLEAR_POSTS: {
+      return {
+        ...state, posts: [], page: 0, totalPostsOnServer: 0,
+      };
+    }
+    case GET_NEW_PAGE_POSTS: {
+      if (action.payload.data.length > 0 && state.posts.length < action.payload.countAll) {
+        const newPosts = [...state.posts, ...action.payload.data];
+        const newPage = state.page + 1;
+        return {
+          ...state, posts: newPosts, page: newPage, totalPostsOnServer: action.payload.countAll,
+        };
+      }
+      return state;
+    }
     case GET_POST_BY_ID: {
       return { ...state, currentPost: action.payload };
     }
     case GET_POSTS_BY_USER_ID: {
       return { ...state, currentPost: action.payload };
     }
+    case GET_FAVORITE_POSTS: {
+      return { ...state, favorites: action.payload };
+    }
     case ADD_POST: {
-      const newPosts = [...state.posts];
+      /* const newPosts = [...state.posts];
       newPosts.push(action.payload);
-      return { ...state, posts: newPosts };
+      return { ...state, posts: newPosts }; */
+      return state;
     }
     case UPDATE_POST: {
-      return { ...state, posts: action.payload };
+      if (action.payload.status === 'success') {
+        const newPosts = [...state.posts];
+        newPosts.splice(newPosts.findIndex((el) => el._id === action.payload.data._id), 1, action.payload.data);
+        return { ...state, posts: newPosts };
+      }
+      return state;
     }
     case DELETE_POST: {
-      return { ...state, posts: action.payload };
+      if (action.payload.status === 'success') {
+        const newPosts = state.posts.filter((post) => post._id !== action.payload.data._id);
+        return { ...state, posts: newPosts };
+      }
+      return state;
     }
     case SHOW_MORE_CHANGE: {
       const showMoreComments = [...state.showMoreComments];
