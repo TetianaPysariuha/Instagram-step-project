@@ -1,4 +1,5 @@
 /* eslint-disable no-underscore-dangle */
+import PropTypes from 'prop-types';
 import styles from './UserPostContainer.module.scss';
 
 function UserPostContainer({ posts }) {
@@ -30,5 +31,13 @@ function UserPostContainer({ posts }) {
     </ul>
   );
 }
+
+UserPostContainer.prototype = {
+  posts: PropTypes.array,
+};
+
+UserPostContainer.defaultProps = {
+  posts: [],
+};
 
 export default UserPostContainer;

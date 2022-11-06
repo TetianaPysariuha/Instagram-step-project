@@ -34,8 +34,6 @@ function UserPage() {
     );
   }
 
-  console.log(posts);
-
   return (
     <div className={styles.userPage}>
       <div className={styles.header}>
@@ -79,10 +77,12 @@ function UserPage() {
           <PostSvg />
           <span>ДОПИСИ</span>
         </NavLink>
+        {_id === loggedUser._id && (
         <NavLink to="saved" className={({ isActive }) => (isActive ? `${styles.userPageMenuLinkAcite} ${styles.userPageMenuLink}` : styles.userPageMenuLink)}>
           <SaveSvg />
           <span>ЗБЕРЕЖЕНІ</span>
         </NavLink>
+        )}
       </div>
       <Routes>
         <Route
@@ -95,12 +95,7 @@ function UserPage() {
         <Route
           path="/saved/"
           element={(
-            <>
-              <h1>saved</h1>
-              <h1>saved</h1>
-              <h1>saved</h1>
-              <h1>saved</h1>
-            </>
+            <h1>saved</h1>
           )}
         />
         )}

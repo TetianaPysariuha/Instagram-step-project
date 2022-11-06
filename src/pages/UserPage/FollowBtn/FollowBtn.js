@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import styles from './FollowBtn.module.scss';
 
 function FollowBtn({ currentUserId, loggedUserId }) {
@@ -7,5 +8,10 @@ function FollowBtn({ currentUserId, loggedUserId }) {
   // else if(currentUserId != followBy.indexOf...) { return(<button onClick=(() => {}) type="button">Відписатись</button>)}
   return <button className={styles.followBtn} type="button">Стежити</button>;
 }
+
+FollowBtn.prototype = {
+  currentUserId: PropTypes.string.isRequired,
+  loggedUserId: PropTypes.string.isRequired,
+};
 
 export default FollowBtn;

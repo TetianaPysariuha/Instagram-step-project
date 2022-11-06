@@ -15,14 +15,11 @@ function App() {
   const { isOpenModal } = useSelector((store) => store.modal);
 
   const dispatch = useDispatch();
-  const posts = useSelector((store) => store.posts);
 
   useEffect(() => {
     dispatch(getPosts());
     dispatch(getUsers());
   }, [dispatch]);
-
-  console.log(posts);
 
   return (
     <div className={styles.body}>
