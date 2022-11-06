@@ -24,7 +24,7 @@ function Post(props) {
         <div className={styles.commentBox}>
           <div className={styles.comments}>
             {comments}
-            <button type="button" className={styles.showMoreBtn} onClick={handleCklickShowMore}>{isMore ? '--------------Show more comments--------------' : '--------------Show less comments--------------'}</button>
+            <button type="button" className={styles.showMoreBtn} onClick={handleCklickShowMore}>{isMore ? '-----Show more comments-----' : '-----Show less comments-----'}</button>
           </div>
           <div className={styles.addComment}>
             <CommentForm postId={postId} />
