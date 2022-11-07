@@ -8,9 +8,8 @@ import Post from '../Post/Post';
 import UserName from '../UserName/UserName';
 import { updatePost, showMoreChange } from '../../store/posts/actionCreators';
 
-function PostsContainer(props) {
+function PostsContainer({ posts }) {
   const dispatch = useDispatch();
-  const { posts } = props;
   const postsStore = useSelector((store) => store.posts.posts);
   const showMoreComments = useSelector((store) => store.posts.showMoreComments);
   const loggedUser = useSelector((store) => store.users.loggedUser);
@@ -23,7 +22,7 @@ function PostsContainer(props) {
     let newLikes;
     if (post.likes.includes(userId)) {
       newLikes = post.likes.filter((el) => el !== userId);
-      dispatch(updatePost({ id: postId, data: { likes: newLikes } }));
+      /*       dispatch(updatePost({ id: postId, data: { likes: newLikes } })); */
     } else {
       newLikes = [...post.likes];
       newLikes.push(userId);
@@ -74,7 +73,7 @@ function PostsContainer(props) {
 
   const getPostElement = (post) => {
     const {
-      _id: postId, user: { avatar, nik }, img, title, description,
+      _id: postId, user: { avatar, nik, _id: userId }, img, title, description,
     } = post;
     const isLiked = post.likes.includes(loggedUser._id);
     const isFavorite = post.favorite.includes(loggedUser._id);
@@ -88,7 +87,7 @@ function PostsContainer(props) {
       <Post
         key={postId}
         postId={postId}
-        userName={<UserName image={avatar} nickname={nik} additionalString={title} />}
+        userName={<UserName image={avatar} nickname={nik} additionalString={title} id={userId} />}
         mainImg={img}
         title={title}
         description={description}
@@ -126,14 +125,14 @@ PostsContainer.prototype = {
     })),
     seeCount: PropTypes.number,
     __v: PropTypes.number,
-    user: PropTypes.arrayOf(PropTypes.shape({
+    user: PropTypes.shape({
       _id: PropTypes.string,
       avatar: PropTypes.string,
       nik: PropTypes.string,
       name: PropTypes.string,
       followBy: PropTypes.arrayOf(PropTypes.string),
       __v: PropTypes.number,
-    })),
+    }),
   })),
 };
 

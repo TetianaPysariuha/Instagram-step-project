@@ -24,6 +24,7 @@ function UserPage() {
   const followers = useSelector((store) => store.users.subscribers);
   const loggedUser = useSelector((store) => store.users.loggedUser);
   const favorite = useSelector((store) => store.posts.favorites);
+  const loggedUserFollowBy = useSelector((store) => store.users.loggedUser.followBy);
 
   useEffect(() => {
     dispatch(getUserById(id));
@@ -53,7 +54,7 @@ function UserPage() {
             <FollowBtn
               currentUserId={_id}
               loggedUserId={loggedUser._id}
-              followBy={followBy}
+              followBy={loggedUserFollowBy}
             />
           </div>
           <ul className={styles.headerUserInfo}>

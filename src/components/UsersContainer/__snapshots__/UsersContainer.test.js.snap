@@ -1,0 +1,99 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Post snapshot testing Should UserContainer to render where isButton with value false 1`] = `
+<DocumentFragment>
+  <div
+    class="userContainer"
+  >
+    <ul>
+      <div
+        class="user"
+      >
+        <div
+          class="userNameContainer"
+        >
+          <a
+            class="avatarLink"
+            href="/Milda/"
+          >
+            <img
+              alt="avatar"
+              class="avatar"
+              src="https://res.cloudinary.com/dx84fdyhd/image/upload/v1667755687/instagram/avatar/1_wfz4lc.jpg"
+            />
+          </a>
+          <div
+            class="nicknameWrraper"
+          >
+            <div>
+              <a
+                class="nickname"
+                href="/Milda/"
+              >
+                <span>
+                  Milda
+                </span>
+              </a>
+              <p
+                class="comment"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </ul>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Post snapshot testing Should UserContainer to render where isButton with value true 1`] = `
+<DocumentFragment>
+  <div
+    class="userContainer"
+  >
+    <ul>
+      <div
+        class="user"
+      >
+        <div
+          class="userNameContainer"
+        >
+          <a
+            class="avatarLink"
+            href="/Milda/"
+          >
+            <img
+              alt="avatar"
+              class="avatar"
+              src="https://res.cloudinary.com/dx84fdyhd/image/upload/v1667755687/instagram/avatar/1_wfz4lc.jpg"
+            />
+          </a>
+          <div
+            class="nicknameWrraper"
+          >
+            <div>
+              <a
+                class="nickname"
+                href="/Milda/"
+              >
+                <span>
+                  Milda
+                </span>
+              </a>
+              <p
+                class="comment"
+              />
+            </div>
+          </div>
+        </div>
+        <button
+          data-testid="subscribeBtn"
+          type="button"
+        >
+          Підписатися 
+        </button>
+      </div>
+    </ul>
+  </div>
+</DocumentFragment>
+`;
