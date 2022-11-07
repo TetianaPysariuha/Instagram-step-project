@@ -57,7 +57,6 @@ describe('Subscribe buttons work', () => {
     useDispatch.mockReturnValue(dispatch);
 
     const mockedUpdateUser = jest.spyOn(actions, 'updateUser');
-    const mockedGetUserById = jest.spyOn(actions, 'getUserById');
 
     render(
       <BrowserRouter>
@@ -69,8 +68,7 @@ describe('Subscribe buttons work', () => {
       </BrowserRouter>,
     );
     fireEvent.click(screen.getByTestId('subscribeBtn'));
-    expect(dispatch).toHaveBeenCalledTimes(2);
+    expect(dispatch).toHaveBeenCalledTimes(1);
     expect(mockedUpdateUser).toHaveBeenCalledTimes(1);
-    expect(mockedGetUserById).toHaveBeenCalledTimes(1);
   });
 });
