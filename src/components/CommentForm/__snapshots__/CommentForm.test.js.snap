@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CommentForm snapshot testing Should CommentForm to render 1`] = `
+<DocumentFragment>
+  <form
+    action="#"
+    class="form"
+  >
+    <input
+      class="formField"
+      name="comment"
+      placeholder="Напишіть коментар"
+      type="text"
+      value=""
+    />
+    <button
+      class="btnSubmit"
+      disabled=""
+      type="submit"
+    >
+      Додати коментар
+    </button>
+  </form>
+</DocumentFragment>
+`;

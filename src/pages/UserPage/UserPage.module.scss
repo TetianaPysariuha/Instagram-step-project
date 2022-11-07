@@ -1,0 +1,94 @@
+.userPage {
+    margin: 0 auto;
+    max-width: 935px;
+    padding: 30px 20px;
+}
+
+.avatarImg {
+    border-radius: 100%;
+    width: 150px;
+    height: 150px;
+}
+
+.header {
+    display: flex;
+    margin-bottom: 44px;
+}
+
+.avatarImgWrraper {
+    text-align: center;
+    margin-right: 30px;
+    flex-grow: 1;
+}
+
+.headerContent {
+    flex-grow: 2;
+}
+
+.headerNicknameWrrapper {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+
+    &>h1 {
+        font-weight: 300;
+    }
+}
+
+.headerUserInfo {
+    display: flex;
+    list-style: none;
+    margin-bottom: 30px;
+
+    &>li {
+        margin-right: 40px;
+        font-weight: 300;
+        font-size: 16px;
+
+        &>span {
+            font-weight: 600;
+            margin: 0 5px;
+        }
+    }
+}
+
+.fullname>h1 {
+    font-size: 16px;
+    font-weight: 600;
+    color: rgb(38, 38, 38);
+}
+
+.userPageMenu {
+    text-align: center;
+    border-top: 1px solid rgb(219, 219, 219);
+    padding: 10px;
+}
+
+
+
+.userPageMenuLink {
+    text-decoration: none;
+    color: rgb(38, 38, 38);
+    margin: 0 30px;
+    padding: 10px;
+    font-weight: 300;
+    opacity: 0.6;
+
+    &:hover {
+        opacity: 0.3;
+
+    }
+
+    &>svg {
+        margin: 0 3px;
+    }
+}
+
+.userPageMenuLinkAcite {
+    &:hover {
+        opacity: 1;
+    }
+
+    opacity: 1;
+    border-top: 1px solid black;
+}

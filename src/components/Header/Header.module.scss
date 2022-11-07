@@ -1,0 +1,31 @@
+.headerPlug {
+    height: 60px;
+}
+
+.header {
+    background-color: rgb(255, 255, 255);
+    border-bottom: 1px solid rgb(219, 219, 219);
+    position: fixed;
+    width: 100%;
+}
+
+.headerContainer {
+    box-sizing: border-box;
+    padding: 0 30px;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 975px;
+    margin: 0 auto;
+}
+
+.avatar {
+    width: 24px;
+    height: 24px;
+    border-radius: 100%;
+}
+
+.profile>a {
+    margin-left: 22px;
+}
