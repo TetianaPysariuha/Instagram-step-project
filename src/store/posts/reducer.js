@@ -1,6 +1,6 @@
 /* eslint-disable no-underscore-dangle */
 import {
-  GET_POSTS, GET_POST_BY_ID, GET_POSTS_BY_USER_ID, ADD_POST, UPDATE_POST, DELETE_POST, SHOW_MORE_CHANGE, GET_NEW_PAGE_POSTS, CLEAR_POSTS, GET_FAVORITE_POSTS,
+  GET_POSTS, GET_POST_BY_ID, GET_POSTS_BY_USER_ID, ADD_POST, UPDATE_POST, DELETE_POST, SHOW_MORE_CHANGE, GET_NEW_PAGE_POSTS, CLEAR_POSTS, GET_FAVORITE_POSTS, CHANGE_ISOPENPOST,
 } from './actiions';
 
 const initialState = {
@@ -11,6 +11,7 @@ const initialState = {
   postsOnPage: 3,
   totalPostsOnServer: 0,
   favorites: [],
+  isOpenPost: false,
 };
 
 // the rule is switched off because state shoul be first in props
@@ -24,6 +25,9 @@ const postsReduser = (state = initialState, action) => {
       return {
         ...state, posts: [], page: 0, totalPostsOnServer: 0,
       };
+    }
+    case CHANGE_ISOPENPOST: {
+      return { ...state, isOpenPost: action.payload };
     }
     case GET_NEW_PAGE_POSTS: {
       if (action.payload.data.length > 0 && state.posts.length < action.payload.countAll) {
@@ -52,9 +56,10 @@ const postsReduser = (state = initialState, action) => {
     }
     case UPDATE_POST: {
       if (action.payload.status === 'success') {
+        console.log('done');
         const newPosts = [...state.posts];
         newPosts.splice(newPosts.findIndex((el) => el._id === action.payload.data._id), 1, action.payload.data);
-        return { ...state, posts: newPosts };
+        return { ...state, posts: newPosts, currentPost: action.payload.data };
       }
       return state;
     }

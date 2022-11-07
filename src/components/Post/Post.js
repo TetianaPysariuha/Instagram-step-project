@@ -1,34 +1,39 @@
 import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 import styles from './Post.module.scss';
+/* import styles from './PostHorisontal.module.scss'; */
 import CommentForm from '../CommentForm/CommentForm';
 
 function Post(props) {
   const {
-    postId, userName, mainImg, title, description, isLiked, handleCklickLike, handleCklickComments, isFavorite, handleCklickFavorite, comments, isMore, handleCklickShowMore,
+    postId, userName, mainImg, title, description, isLiked, handleCklickLike, handleCklickComments, isFavorite, handleCklickFavorite, comments, isMore, handleCklickShowMore, style,
   } = props;
 
+  let postStyles = styles;
+  if (style) {
+    postStyles = style;
+  }
   return (
-    <div key={postId} className={styles.postContainier}>
-      <div className={styles.postWrapper}>
+    <div key={postId} className={postStyles.postContainier}>
+      <div className={postStyles.postWrapper}>
         {userName}
-        <img className={styles.maneFoto} src={mainImg} onDoubleClick={handleCklickLike} alt={title} />
-        <div className={styles.buttonBox}>
-          <div className={styles.groupBtn}>
+        <div className={postStyles.maneFoto}>
+          <img src={mainImg} onDoubleClick={handleCklickLike} alt={title} />
+        </div>
+        <div className={postStyles.buttonBox}>
+          <div className={postStyles.groupBtn}>
             <img src={isLiked ? './images/heart-red.svg' : './images/heart-white.svg'} onClick={handleCklickLike} alt={isLiked ? 'liked' : 'not liked'} data-testid="likeBtn" />
             <img src="./images/comment.svg" onClick={handleCklickComments} alt="see all comments" data-testid="commentBtn" />
           </div>
           <img src={isFavorite ? './images/favorite-marked.svg' : './images/favorite.svg'} onClick={handleCklickFavorite} alt="favorite" data-testid="favoriteBtn" />
         </div>
-        <p className={styles.description}>{description}</p>
-        <div className={styles.commentBox}>
-          <div className={styles.comments}>
-            {comments}
-            <button type="button" className={styles.showMoreBtn} onClick={handleCklickShowMore}>{isMore ? '-----Show more comments-----' : '-----Show less comments-----'}</button>
-          </div>
-          <div className={styles.addComment}>
-            <CommentForm postId={postId} />
-          </div>
+        <p className={postStyles.description}>{description}</p>
+        <div className={postStyles.comments}>
+          {comments}
+          <button type="button" className={postStyles.showMoreBtn} onClick={handleCklickShowMore}>{isMore ? '-----Show more comments-----' : '-----Show less comments-----'}</button>
+        </div>
+        <div className={postStyles.addComment}>
+          <CommentForm postId={postId} />
         </div>
       </div>
     </div>

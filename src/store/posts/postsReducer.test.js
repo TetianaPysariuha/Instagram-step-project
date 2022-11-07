@@ -1,6 +1,6 @@
 import reduser from './reducer';
 import {
-  GET_POSTS, GET_POST_BY_ID, GET_POSTS_BY_USER_ID, ADD_POST, UPDATE_POST, DELETE_POST, SHOW_MORE_CHANGE, GET_NEW_PAGE_POSTS, CLEAR_POSTS, GET_FAVORITE_POSTS,
+  GET_POSTS, GET_POST_BY_ID, GET_POSTS_BY_USER_ID, ADD_POST, UPDATE_POST, DELETE_POST, SHOW_MORE_CHANGE, GET_NEW_PAGE_POSTS, CLEAR_POSTS, GET_FAVORITE_POSTS, CHANGE_ISOPENPOST,
 } from './actiions';
 
 const initialState = {
@@ -11,6 +11,7 @@ const initialState = {
   postsOnPage: 3,
   totalPostsOnServer: 0,
   favorites: [],
+  isOpenPost: false,
 };
 
 const addPost = {
@@ -24,6 +25,7 @@ const addPost = {
   postsOnPage: 3,
   totalPostsOnServer: 0,
   favorites: [],
+  isOpenPost: false,
 };
 
 const getPostById = {
@@ -36,6 +38,7 @@ const getPostById = {
   postsOnPage: 3,
   totalPostsOnServer: 0,
   favorites: [],
+  isOpenPost: false,
 };
 
 const getPostByUserId = {
@@ -48,6 +51,7 @@ const getPostByUserId = {
   postsOnPage: 3,
   totalPostsOnServer: 0,
   favorites: [],
+  isOpenPost: false,
 };
 
 const getPosts = {
@@ -60,6 +64,7 @@ const getPosts = {
   postsOnPage: 3,
   totalPostsOnServer: 0,
   favorites: [],
+  isOpenPost: false,
 };
 
 const updatePost = {
@@ -67,12 +72,16 @@ const updatePost = {
     _id: 1,
     title: 'UPDATE_POST_NEW',
   }],
-  currentPost: {},
+  currentPost: {
+    _id: 1,
+    title: 'UPDATE_POST_NEW',
+  },
   showMoreComments: [],
   page: 0,
   postsOnPage: 3,
   totalPostsOnServer: 0,
   favorites: [],
+  isOpenPost: false,
 };
 
 const deletePost = {
@@ -83,6 +92,7 @@ const deletePost = {
   postsOnPage: 3,
   totalPostsOnServer: 0,
   favorites: [],
+  isOpenPost: false,
 };
 
 const showMoreChange = {
@@ -93,6 +103,7 @@ const showMoreChange = {
   postsOnPage: 3,
   totalPostsOnServer: 0,
   favorites: [],
+  isOpenPost: false,
 };
 
 const getNewPagePosts = {
@@ -105,6 +116,7 @@ const getNewPagePosts = {
   postsOnPage: 3,
   totalPostsOnServer: 5,
   favorites: [],
+  isOpenPost: false,
 };
 
 const clearPosts = {
@@ -115,6 +127,7 @@ const clearPosts = {
   postsOnPage: 3,
   totalPostsOnServer: 0,
   favorites: [],
+  isOpenPost: false,
 };
 
 const getFavoritePosts = {
@@ -127,6 +140,18 @@ const getFavoritePosts = {
   favorites: [{
     title: 'GET_FAVORITE_POSTS',
   }],
+  isOpenPost: false,
+};
+
+const changeIsOpenPost = {
+  posts: [],
+  currentPost: {},
+  showMoreComments: [],
+  page: 0,
+  postsOnPage: 3,
+  totalPostsOnServer: 0,
+  favorites: [],
+  isOpenPost: true,
 };
 
 describe('Reducers testing', () => {
@@ -222,5 +247,12 @@ describe('Reducers testing', () => {
       type: GET_FAVORITE_POSTS,
       payload: [{ title: 'GET_FAVORITE_POSTS' }],
     }))).toEqual(JSON.stringify(getFavoritePosts));
+  });
+
+  test('Should return with action CHANGE_ISOPENPOST', () => {
+    expect(JSON.stringify(reduser(undefined, {
+      type: CHANGE_ISOPENPOST,
+      payload: true,
+    }))).toEqual(JSON.stringify(changeIsOpenPost));
   });
 });
