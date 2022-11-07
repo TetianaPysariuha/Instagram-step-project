@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Preloaders renders Should Preloaders render 1`] = `
+<DocumentFragment>
+  <span
+    class="backgroundAnimation"
+  />
+  <div
+    class="loader"
+  />
+</DocumentFragment>
+`;

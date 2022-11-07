@@ -7,7 +7,7 @@ exports[`UserName renders Should Header render 1`] = `
   >
     <a
       class="avatarLink"
-      href="/undefined/"
+      href="/userpage/undefined"
     >
       <img
         alt="avatar"
@@ -21,7 +21,7 @@ exports[`UserName renders Should Header render 1`] = `
       <div>
         <a
           class="nickname"
-          href="/undefined/"
+          href="/userpage/undefined"
         >
           <span />
         </a>

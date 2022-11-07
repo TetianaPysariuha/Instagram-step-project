@@ -23,8 +23,16 @@ function UsersContainer({ isButton, users, loggedUser }) {
 
   const getUserName = (user) => (
     <div className={styles.user} key={user._id}>
-      <UserName image={user.avatar} nickname={user.nik} />
-      {isButton && <button data-testid="subscribeBtn" type="button" onClick={() => handleClickSubscribe(user._id)}>{loggedUser.followBy.includes(user._id) ? 'Відписатись' : 'Підписатися '}</button>}
+      <UserName image={user.avatar} nickname={user.nik} id={user._id} />
+      {isButton && (
+      <button
+        data-testid="subscribeBtn"
+        type="button"
+        onClick={() => handleClickSubscribe(user._id)}
+      >
+        {loggedUser.followBy.includes(user._id) ? 'Відписатись' : 'Підписатися '}
+      </button>
+      )}
     </div>
   );
 

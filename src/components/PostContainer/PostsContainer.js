@@ -83,6 +83,8 @@ function PostsContainer({ posts, postStyles }) {
     dispatch(changeIsOpenPost(true));
   };
 
+  console.log(currentPost);
+
   useEffect(() => {
     if (currentPost._id && isOpenPost) {
       dispatch(openModalAC(<PostsContainer postStyles={postStyle} posts={[currentPost]} />));
@@ -97,7 +99,7 @@ function PostsContainer({ posts, postStyles }) {
 
   const getPostElement = (post) => {
     const {
-      _id: postId, user: { avatar, nik }, img, title, description,
+      _id: postId, user: { avatar, nik, _id: userId }, img, title, description,
     } = post;
     const isLiked = post.likes.includes(loggedUser._id);
     const isFavorite = post.favorite.includes(loggedUser._id);
@@ -113,7 +115,7 @@ function PostsContainer({ posts, postStyles }) {
         key={postId}
         style={style}
         postId={postId}
-        userName={<UserName image={avatar} nickname={nik} additionalString={title} />}
+        userName={<UserName image={avatar} nickname={nik} additionalString={title} id={userId} />}
         mainImg={img}
         title={title}
         description={description}

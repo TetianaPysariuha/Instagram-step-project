@@ -1,14 +1,12 @@
-.homePage{
+.homePage {
     width: 100%;
-    display: grid;
-    grid-template-columns: 3fr 1fr;
-    margin-right: 100px; 
-/*     grid-template-areas: 
-    "posts listSubscribered"
-    "posts listotherUsers"
-    ; */
+    display: flex;
+    justify-content: center;
+    margin-right: 100px;
+
 }
-.users{
+
+.users {
     margin: 20px;
     display: flex;
     flex-direction: column;

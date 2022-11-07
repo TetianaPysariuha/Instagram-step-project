@@ -5,16 +5,16 @@ import styles from './UserName.module.scss';
 import defaultAvatar from './default-avatar.jpg';
 
 function UserName({
-  image, nickname, additionalString, comment, additionalStringFunc,
+  image, nickname, additionalString, comment, additionalStringFunc, id,
 }) {
   return (
     <div className={styles.userNameContainer}>
-      <Link to={`/${nickname}/`} className={styles.avatarLink}>
+      <Link to={`userpage/${id}`} className={styles.avatarLink}>
         <img src={image} alt="avatar" className={styles.avatar} />
       </Link>
       <div className={styles.nicknameWrraper}>
         <div>
-          <Link to={`/${nickname}/`} className={styles.nickname}>
+          <Link to={`userpage/${id}`} className={styles.nickname}>
             <span>{nickname}</span>
           </Link>
           <p className={styles.comment}>{comment}</p>

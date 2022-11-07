@@ -50,7 +50,7 @@ function CommentForm({ postId }) {
             disabled={!dirty || !isValid}
             type="submit"
           >
-            Додати коментар
+            Опублікувати
           </button>
         </Form>
       )}

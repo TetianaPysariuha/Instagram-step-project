@@ -13,7 +13,7 @@ exports[`Post snapshot testing Should Post to render where isLiked and isFavorit
       >
         <a
           class="avatarLink"
-          href="/undefined/"
+          href="/userpage/undefined"
         >
           <img
             alt="avatar"
@@ -27,7 +27,7 @@ exports[`Post snapshot testing Should Post to render where isLiked and isFavorit
           <div>
             <a
               class="nickname"
-              href="/undefined/"
+              href="/userpage/undefined"
             >
               <span />
             </a>
@@ -39,6 +39,7 @@ exports[`Post snapshot testing Should Post to render where isLiked and isFavorit
       </div>
       <div
         class="maneFoto"
+        style="background-image: url(undefined);"
       >
         <img
           alt="Big Dog and Small Girl"
@@ -58,7 +59,7 @@ exports[`Post snapshot testing Should Post to render where isLiked and isFavorit
           <img
             alt="see all comments"
             data-testid="commentBtn"
-            src=".../../images/comment.svg"
+            src="../../images/comment.svg"
           />
         </div>
         <img
@@ -87,7 +88,7 @@ exports[`Post snapshot testing Should Post to render where isLiked and isFavorit
           data-testid="showMoreBtn"
           type="button"
         >
-          -----Показати більше-----
+          Показати більше
         </button>
       </div>
       <div
@@ -131,7 +132,7 @@ exports[`Post snapshot testing Should Post to render where isLiked and isFavorit
       >
         <a
           class="avatarLink"
-          href="/undefined/"
+          href="/userpage/undefined"
         >
           <img
             alt="avatar"
@@ -145,7 +146,7 @@ exports[`Post snapshot testing Should Post to render where isLiked and isFavorit
           <div>
             <a
               class="nickname"
-              href="/undefined/"
+              href="/userpage/undefined"
             >
               <span />
             </a>
@@ -157,6 +158,7 @@ exports[`Post snapshot testing Should Post to render where isLiked and isFavorit
       </div>
       <div
         class="maneFoto"
+        style="background-image: url(undefined);"
       >
         <img
           alt="Big Dog and Small Girl"
@@ -176,7 +178,7 @@ exports[`Post snapshot testing Should Post to render where isLiked and isFavorit
           <img
             alt="see all comments"
             data-testid="commentBtn"
-            src=".../../images/comment.svg"
+            src="../../images/comment.svg"
           />
         </div>
         <img
@@ -205,7 +207,7 @@ exports[`Post snapshot testing Should Post to render where isLiked and isFavorit
           data-testid="showMoreBtn"
           type="button"
         >
-          -----Показати більше-----
+          Показати більше
         </button>
       </div>
       <div

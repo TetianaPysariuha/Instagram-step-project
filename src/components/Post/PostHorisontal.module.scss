@@ -1,21 +1,21 @@
-.postContainier{
+.postContainier {
     width: 100%;
     height: 85vh;
-/*     border: 3px solid rgba($color: gray, $alpha: 0.3); */
+    /*     border: 3px solid rgba($color: gray, $alpha: 0.3); */
     margin: auto;
     border-radius: 10px;
-    max-height: 90vh; 
+    max-height: 90vh;
 }
-.postWrapper{
-    width: 100%;
+
+.postWrapper {
     height: 100%;
-    margin: auto;
     display: grid;
     grid-template-columns: 1fr 400px;
     grid-template-rows: 30px 1fr 3fr 50px 50px;
 }
-.maneFoto{
-    width: 99%;
+
+.maneFoto {
+    width: 100%;
     height: 100%;
     margin: auto;
     grid-column-start: 1;
@@ -24,71 +24,91 @@
     background-color: black;
     display: flex;
     align-items: center;
+
+    &>img {
+        display: block;
+    }
+
+    background-image: none !important;
 }
-.maneFoto img{
+
+.maneFoto img {
     max-height: 85vh;
     width: 100%;
     object-fit: contain;
 }
-.buttonBox{
+
+.buttonBox {
     width: 100%;
     height: 100%;
     display: flex;
     justify-content: space-between;
     padding: 10px;
-    box-sizing:border-box;
-    & img{
+    box-sizing: border-box;
+
+    & img {
         cursor: pointer;
     }
 }
-.buttonBox img{
+
+.buttonBox img {
     width: 25px;
 }
-.groupBtn{
+
+.groupBtn {
     display: flex;
     justify-content: space-around;
-    width: 60px;
+    width: 70px;
 }
-.description{
+
+.description {
     margin: 20px;
     padding: 10px;
     grid-row-start: 2;
     grid-row-end: 3;
     border-top: 1px solid rgba($color: gray, $alpha: 0.3);
 }
-.comments{
+
+.comments {
     display: flex;
     flex-direction: column;
     max-width: 90%;
     margin: 10px;
     font-weight: 400;
-    &>ul{
+
+    &>ul {
         text-decoration: none;
         list-style: none;
     }
-    & span{
+
+    & span {
         font-weight: 700;
     }
+
     grid-row-start: 3;
     grid-row-end: 4;
     margin: 20px;
     overflow-y: scroll;
     scrollbar-width: none;
 }
-.comments li{
+
+.comments li {
     width: 100%;
 }
-.showMoreBtn{
+
+.showMoreBtn {
     border: none;
     background-color: white;
     cursor: pointer;
     padding: 20px;
     align-self: center;
+
 }
-.addComment{
-border-top: 1px solid rgba($color: gray, $alpha: 0.1);
-width: 100%;
-grid-row-start: 5;
-grid-row-end: 6;
-justify-self: center;
+
+.addComment {
+    border-top: 1px solid rgba($color: gray, $alpha: 0.1);
+    width: 100%;
+    grid-row-start: 5;
+    grid-row-end: 6;
+    justify-self: center;
 }

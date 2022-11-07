@@ -18,20 +18,20 @@ function Post(props) {
     <div key={postId} className={postStyles.postContainier}>
       <div className={postStyles.postWrapper}>
         {userName}
-        <div className={postStyles.maneFoto}>
+        <div className={postStyles.maneFoto} style={{ backgroundImage: `url(${mainImg})` }}>
           <img src={mainImg} onDoubleClick={handleCklickLike} alt={title} />
         </div>
         <div className={postStyles.buttonBox}>
           <div className={postStyles.groupBtn}>
             <img src={isLiked ? '../../images/heart-red.svg' : '../../images/heart-white.svg'} onClick={handleCklickLike} alt={isLiked ? 'liked' : 'not liked'} data-testid="likeBtn" />
-            <img src=".../../images/comment.svg" onClick={handleCklickComments} alt="see all comments" data-testid="commentBtn" />
+            <img src="../../images/comment.svg" onClick={handleCklickComments} alt="see all comments" data-testid="commentBtn" />
           </div>
           <img src={isFavorite ? '../../images/favorite-marked.svg' : '../../images/favorite.svg'} onClick={handleCklickFavorite} alt="favorite" data-testid="favoriteBtn" />
         </div>
         <p className={postStyles.description}>{description}</p>
         <div className={postStyles.comments}>
           {comments}
-          {showIsMoreButton && <button type="button" className={postStyles.showMoreBtn} onClick={handleCklickShowMore} data-testid="showMoreBtn">{isMore ? '-----Показати більше-----' : '-----Показати меньше-----'}</button>}
+          {showIsMoreButton && <button type="button" className={postStyles.showMoreBtn} onClick={handleCklickShowMore} data-testid="showMoreBtn">{isMore ? 'Показати більше' : 'Показати меньше'}</button>}
         </div>
         <div className={postStyles.addComment}>
           <CommentForm postId={postId} />

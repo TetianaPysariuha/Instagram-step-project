@@ -14,7 +14,7 @@ exports[`Post snapshot testing Should UserContainer to render where isButton wit
         >
           <a
             class="avatarLink"
-            href="/Milda/"
+            href="/userpage/635429e5461d59d5a106db66"
           >
             <img
               alt="avatar"
@@ -28,7 +28,7 @@ exports[`Post snapshot testing Should UserContainer to render where isButton wit
             <div>
               <a
                 class="nickname"
-                href="/Milda/"
+                href="/userpage/635429e5461d59d5a106db66"
               >
                 <span>
                   Milda
@@ -60,7 +60,7 @@ exports[`Post snapshot testing Should UserContainer to render where isButton wit
         >
           <a
             class="avatarLink"
-            href="/Milda/"
+            href="/userpage/635429e5461d59d5a106db66"
           >
             <img
               alt="avatar"
@@ -74,7 +74,7 @@ exports[`Post snapshot testing Should UserContainer to render where isButton wit
             <div>
               <a
                 class="nickname"
-                href="/Milda/"
+                href="/userpage/635429e5461d59d5a106db66"
               >
                 <span>
                   Milda

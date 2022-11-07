@@ -16,7 +16,7 @@ exports[`Post snapshot testing Should PostContainer to render with props 1`] = `
         >
           <a
             class="avatarLink"
-            href="/Milda/"
+            href="/userpage/635429e5461d59d5a106db66"
           >
             <img
               alt="avatar"
@@ -30,7 +30,7 @@ exports[`Post snapshot testing Should PostContainer to render with props 1`] = `
             <div>
               <a
                 class="nickname"
-                href="/Milda/"
+                href="/userpage/635429e5461d59d5a106db66"
               >
                 <span>
                   Milda
@@ -49,6 +49,7 @@ exports[`Post snapshot testing Should PostContainer to render with props 1`] = `
         </div>
         <div
           class="maneFoto"
+          style="background-image: url(https://res.cloudinary.com/dx84fdyhd/image/upload/v1667755090/instagram/post14_dmu9vm.jpg);"
         >
           <img
             alt="Some post for deleting user"
@@ -69,7 +70,7 @@ exports[`Post snapshot testing Should PostContainer to render with props 1`] = `
             <img
               alt="see all comments"
               data-testid="commentBtn"
-              src=".../../images/comment.svg"
+              src="../../images/comment.svg"
             />
           </div>
           <img
