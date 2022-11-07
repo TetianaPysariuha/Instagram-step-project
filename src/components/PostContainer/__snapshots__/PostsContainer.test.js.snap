@@ -16,7 +16,7 @@ exports[`Post snapshot testing Should PostContainer to render with props 1`] = `
         >
           <a
             class="avatarLink"
-            href="/Milda/"
+            href="/userpage/635429e5461d59d5a106db66"
           >
             <img
               alt="avatar"
@@ -30,7 +30,7 @@ exports[`Post snapshot testing Should PostContainer to render with props 1`] = `
             <div>
               <a
                 class="nickname"
-                href="/Milda/"
+                href="/userpage/635429e5461d59d5a106db66"
               >
                 <span>
                   Milda
@@ -47,11 +47,14 @@ exports[`Post snapshot testing Should PostContainer to render with props 1`] = `
             </p>
           </div>
         </div>
-        <img
-          alt="Some post for deleting user"
+        <div
           class="maneFoto"
-          src="https://res.cloudinary.com/dx84fdyhd/image/upload/v1667755090/instagram/post14_dmu9vm.jpg"
-        />
+        >
+          <img
+            alt="Some post for deleting user"
+            src="https://res.cloudinary.com/dx84fdyhd/image/upload/v1667755090/instagram/post14_dmu9vm.jpg"
+          />
+        </div>
         <div
           class="buttonBox"
         >
@@ -61,18 +64,18 @@ exports[`Post snapshot testing Should PostContainer to render with props 1`] = `
             <img
               alt="not liked"
               data-testid="likeBtn"
-              src="./images/heart-white.svg"
+              src="../../images/heart-white.svg"
             />
             <img
               alt="see all comments"
               data-testid="commentBtn"
-              src="./images/comment.svg"
+              src="../../images/comment.svg"
             />
           </div>
           <img
             alt="favorite"
             data-testid="favoriteBtn"
-            src="./images/favorite.svg"
+            src="../../images/favorite.svg"
           />
         </div>
         <p
@@ -81,41 +84,37 @@ exports[`Post snapshot testing Should PostContainer to render with props 1`] = `
           Some description about post
         </p>
         <div
-          class="commentBox"
+          class="comments"
         >
-          <div
-            class="comments"
+          <button
+            class="showMoreBtn"
+            type="button"
           >
+            -----Show more comments-----
+          </button>
+        </div>
+        <div
+          class="addComment"
+        >
+          <form
+            action="#"
+            class="form"
+          >
+            <input
+              class="formField"
+              name="comment"
+              placeholder="write a comment"
+              type="text"
+              value=""
+            />
             <button
-              class="showMoreBtn"
-              type="button"
+              class="btnSubmit"
+              disabled=""
+              type="submit"
             >
-              -----Show more comments-----
+              Add comment
             </button>
-          </div>
-          <div
-            class="addComment"
-          >
-            <form
-              action="#"
-              class="form"
-            >
-              <input
-                class="formField"
-                name="comment"
-                placeholder="write a comment"
-                type="text"
-                value=""
-              />
-              <button
-                class="btnSubmit"
-                disabled=""
-                type="submit"
-              >
-                Add comment
-              </button>
-            </form>
-          </div>
+          </form>
         </div>
       </div>
     </div>

@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FollowBtn renders Should FollowBtn render with different id 1`] = `
+<DocumentFragment>
+  <button
+    class="followBtn"
+    type="button"
+  >
+    Підписатися
+  </button>
+</DocumentFragment>
+`;
+
+exports[`FollowBtn renders Should FollowBtn render with equal id 1`] = `
+<DocumentFragment>
+  <span
+    class="yourAccSpan"
+  >
+    це ваш аккаунт
+  </span>
+</DocumentFragment>
+`;

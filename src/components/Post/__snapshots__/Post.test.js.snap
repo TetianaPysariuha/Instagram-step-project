@@ -13,7 +13,7 @@ exports[`Post snapshot testing Should Post to render where isLiked and isFavorit
       >
         <a
           class="avatarLink"
-          href="/undefined/"
+          href="/userpage/undefined"
         >
           <img
             alt="avatar"
@@ -27,7 +27,7 @@ exports[`Post snapshot testing Should Post to render where isLiked and isFavorit
           <div>
             <a
               class="nickname"
-              href="/undefined/"
+              href="/userpage/undefined"
             >
               <span />
             </a>
@@ -37,10 +37,13 @@ exports[`Post snapshot testing Should Post to render where isLiked and isFavorit
           </div>
         </div>
       </div>
-      <img
-        alt="Big Dog and Small Girl"
+      <div
         class="maneFoto"
-      />
+      >
+        <img
+          alt="Big Dog and Small Girl"
+        />
+      </div>
       <div
         class="buttonBox"
       >
@@ -50,68 +53,64 @@ exports[`Post snapshot testing Should Post to render where isLiked and isFavorit
           <img
             alt="liked"
             data-testid="likeBtn"
-            src="./images/heart-red.svg"
+            src="../../images/heart-red.svg"
           />
           <img
             alt="see all comments"
             data-testid="commentBtn"
-            src="./images/comment.svg"
+            src="../../images/comment.svg"
           />
         </div>
         <img
           alt="favorite"
           data-testid="favoriteBtn"
-          src="./images/favorite-marked.svg"
+          src="../../images/favorite-marked.svg"
         />
       </div>
       <p
         class="description"
       />
       <div
-        class="commentBox"
+        class="comments"
       >
-        <div
-          class="comments"
+        <p>
+          comment1
+        </p>
+        <p>
+          comment2
+        </p>
+        <p>
+          comment3
+        </p>
+        <button
+          class="showMoreBtn"
+          type="button"
         >
-          <p>
-            comment1
-          </p>
-          <p>
-            comment2
-          </p>
-          <p>
-            comment3
-          </p>
+          -----Show more comments-----
+        </button>
+      </div>
+      <div
+        class="addComment"
+      >
+        <form
+          action="#"
+          class="form"
+        >
+          <input
+            class="formField"
+            name="comment"
+            placeholder="write a comment"
+            type="text"
+            value=""
+          />
           <button
-            class="showMoreBtn"
-            type="button"
+            class="btnSubmit"
+            disabled=""
+            type="submit"
           >
-            -----Show more comments-----
+            Add comment
           </button>
-        </div>
-        <div
-          class="addComment"
-        >
-          <form
-            action="#"
-            class="form"
-          >
-            <input
-              class="formField"
-              name="comment"
-              placeholder="write a comment"
-              type="text"
-              value=""
-            />
-            <button
-              class="btnSubmit"
-              disabled=""
-              type="submit"
-            >
-              Add comment
-            </button>
-          </form>
-        </div>
+        </form>
       </div>
     </div>
   </div>
@@ -131,7 +130,7 @@ exports[`Post snapshot testing Should Post to render where isLiked and isFavorit
       >
         <a
           class="avatarLink"
-          href="/undefined/"
+          href="/userpage/undefined"
         >
           <img
             alt="avatar"
@@ -145,7 +144,7 @@ exports[`Post snapshot testing Should Post to render where isLiked and isFavorit
           <div>
             <a
               class="nickname"
-              href="/undefined/"
+              href="/userpage/undefined"
             >
               <span />
             </a>
@@ -155,10 +154,13 @@ exports[`Post snapshot testing Should Post to render where isLiked and isFavorit
           </div>
         </div>
       </div>
-      <img
-        alt="Big Dog and Small Girl"
+      <div
         class="maneFoto"
-      />
+      >
+        <img
+          alt="Big Dog and Small Girl"
+        />
+      </div>
       <div
         class="buttonBox"
       >
@@ -168,68 +170,64 @@ exports[`Post snapshot testing Should Post to render where isLiked and isFavorit
           <img
             alt="liked"
             data-testid="likeBtn"
-            src="./images/heart-red.svg"
+            src="../../images/heart-red.svg"
           />
           <img
             alt="see all comments"
             data-testid="commentBtn"
-            src="./images/comment.svg"
+            src="../../images/comment.svg"
           />
         </div>
         <img
           alt="favorite"
           data-testid="favoriteBtn"
-          src="./images/favorite-marked.svg"
+          src="../../images/favorite-marked.svg"
         />
       </div>
       <p
         class="description"
       />
       <div
-        class="commentBox"
+        class="comments"
       >
-        <div
-          class="comments"
+        <p>
+          comment1
+        </p>
+        <p>
+          comment2
+        </p>
+        <p>
+          comment3
+        </p>
+        <button
+          class="showMoreBtn"
+          type="button"
         >
-          <p>
-            comment1
-          </p>
-          <p>
-            comment2
-          </p>
-          <p>
-            comment3
-          </p>
+          -----Show more comments-----
+        </button>
+      </div>
+      <div
+        class="addComment"
+      >
+        <form
+          action="#"
+          class="form"
+        >
+          <input
+            class="formField"
+            name="comment"
+            placeholder="write a comment"
+            type="text"
+            value=""
+          />
           <button
-            class="showMoreBtn"
-            type="button"
+            class="btnSubmit"
+            disabled=""
+            type="submit"
           >
-            -----Show more comments-----
+            Add comment
           </button>
-        </div>
-        <div
-          class="addComment"
-        >
-          <form
-            action="#"
-            class="form"
-          >
-            <input
-              class="formField"
-              name="comment"
-              placeholder="write a comment"
-              type="text"
-              value=""
-            />
-            <button
-              class="btnSubmit"
-              disabled=""
-              type="submit"
-            >
-              Add comment
-            </button>
-          </form>
-        </div>
+        </form>
       </div>
     </div>
   </div>

@@ -1,28 +1,35 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-underscore-dangle */
-import React, { memo } from 'react';
+import React, { memo, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import styles from './PostsContainer.module.scss';
 import Post from '../Post/Post';
 import UserName from '../UserName/UserName';
-import { updatePost, showMoreChange } from '../../store/posts/actionCreators';
+import {
+  updatePost, showMoreChange, getPostById, changeIsOpenPost,
+} from '../../store/posts/actionCreators';
+import { openModalAC } from '../../store/modal/actionCreators';
+import postStyle from '../Post/PostHorisontal.module.scss';
 
-function PostsContainer({ posts }) {
+function PostsContainer({ posts, postStyles }) {
   const dispatch = useDispatch();
   const postsStore = useSelector((store) => store.posts.posts);
   const showMoreComments = useSelector((store) => store.posts.showMoreComments);
+  const currentPost = useSelector((store) => store.posts.currentPost);
   const loggedUser = useSelector((store) => store.users.loggedUser);
   const users = useSelector((store) => store.users.users);
+  const isOpenPost = useSelector((store) => store.posts.isOpenPost);
+  const isOpenModal = useSelector((store) => store.modal.isOpenModal);
 
   const postsList = posts || postsStore;
+  const style = postStyles || null;
 
   const handleCklickLike = (postId, userId) => {
     const post = postsList.find((el) => el._id === postId);
     let newLikes;
     if (post.likes.includes(userId)) {
       newLikes = post.likes.filter((el) => el !== userId);
-      /*       dispatch(updatePost({ id: postId, data: { likes: newLikes } })); */
     } else {
       newLikes = [...post.likes];
       newLikes.push(userId);
@@ -71,6 +78,25 @@ function PostsContainer({ posts }) {
     );
   };
 
+  const handleCklickComments = (postId) => {
+    dispatch(getPostById(postId));
+    dispatch(changeIsOpenPost(true));
+  };
+
+  console.log(currentPost);
+
+  useEffect(() => {
+    if (currentPost._id && isOpenPost) {
+      dispatch(openModalAC(<PostsContainer postStyles={postStyle} posts={[currentPost]} />));
+    }
+  }, [currentPost]);
+
+  useEffect(() => {
+    if (!isOpenModal && isOpenPost) {
+      dispatch(changeIsOpenPost(false));
+    }
+  }, [isOpenModal]);
+
   const getPostElement = (post) => {
     const {
       _id: postId, user: { avatar, nik, _id: userId }, img, title, description,
@@ -86,6 +112,7 @@ function PostsContainer({ posts }) {
     return (
       <Post
         key={postId}
+        style={style}
         postId={postId}
         userName={<UserName image={avatar} nickname={nik} additionalString={title} id={userId} />}
         mainImg={img}
@@ -93,7 +120,7 @@ function PostsContainer({ posts }) {
         description={description}
         isLiked={isLiked}
         handleCklickLike={() => handleCklickLike(postId, loggedUser._id)}
-        handleCklickComments={() => {}}
+        handleCklickComments={() => handleCklickComments(postId)}
         isFavorite={isFavorite}
         handleCklickFavorite={() => handleCklickFavorite(postId, loggedUser._id)}
         comments={comments}
@@ -105,7 +132,7 @@ function PostsContainer({ posts }) {
 
   return (
     <div className={styles.postContainer}>
-      {postsList.length > 0 && users.length > 0 && postsList.map((post) => getPostElement(post))}
+      {(postsList.length > 0 || currentPost) && users.length > 0 && postsList.map((post) => getPostElement(post))}
     </div>
   );
 }
