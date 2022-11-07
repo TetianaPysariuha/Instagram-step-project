@@ -17,7 +17,21 @@ const posts = [{
   description: 'Some description about post',
   likes: [],
   favorite: [],
-  comments: [],
+  comments: [{
+    userId: '635429e5461d59d5a106db66',
+    text: 'zxcvxzcv',
+    _id: '635d1bac9809759d382628e9',
+  },
+  {
+    userId: '635429e5461d59d5a106db66',
+    text: 'asdasdasd',
+    _id: '635d258705351e1ae65b6b47',
+  },
+  {
+    userId: '635429e5461d59d5a106db66',
+    text: 'xzzzxcxzc',
+    _id: '635d2d4305351e1ae65b6ddd',
+  }],
   seeCount: 999,
   __v: 0,
   user: {
@@ -142,7 +156,7 @@ describe('PostContainer functions work', () => {
         <PostsContainer posts={posts} />
       </BrowserRouter>,
     );
-    fireEvent.click(screen.getByText('Show more comments', { exact: false }));
+    fireEvent.click(screen.getByTestId('showMoreBtn'));
     expect(dispatch).toHaveBeenCalledTimes(1);
     expect(handleCklickShowMore).toHaveBeenCalledTimes(1);
   });

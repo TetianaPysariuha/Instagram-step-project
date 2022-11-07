@@ -6,7 +6,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import styles from './HomePage.module.scss';
 import PostsContainer from '../../components/PostContainer/PostsContainer';
 import UsersContainer from '../../components/UsersContainer/UsersContainer';
-/* import UserName from '../../components/UserName/UserName'; */
+import UserName from '../../components/UserName/UserName';
 import useScrollY from '../../hooks/useScrollY';
 import { loadNewPagePosts, clearPosts } from '../../store/posts/actionCreators';
 
@@ -48,7 +48,7 @@ function HomePage() {
     <div className={styles.homePage}>
       {posts.length > 0 && <PostsContainer />}
       <div className={styles.users}>
-        {/* <UserName image={loggedUser.avatar} nickname={loggedUser.nik} additionalString={loggedUser.name} /> */}
+        <UserName image={loggedUser.avatar} nickname={loggedUser.nik} additionalString={loggedUser.name} />
         {!isLoading && followByListUsers.length > 0 && <UsersContainer isButton={false} users={followByListUsers} loggedUser={loggedUserfull} />}
         {!isLoading && otherUsers.length > 0 && <UsersContainer isButton users={otherUsers} loggedUser={loggedUserfull} />}
       </div>

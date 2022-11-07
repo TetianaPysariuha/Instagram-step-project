@@ -56,7 +56,6 @@ const postsReduser = (state = initialState, action) => {
     }
     case UPDATE_POST: {
       if (action.payload.status === 'success') {
-        console.log('done');
         const newPosts = [...state.posts];
         newPosts.splice(newPosts.findIndex((el) => el._id === action.payload.data._id), 1, action.payload.data);
         return { ...state, posts: newPosts, currentPost: action.payload.data };

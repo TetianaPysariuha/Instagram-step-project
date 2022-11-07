@@ -30,6 +30,7 @@ describe('Post snapshot testing', () => {
           handleCklickFavorite={() => {}}
           comments={comments}
           isMore
+          showIsMoreButton
           handleCklickShowMore={() => {}}
           handleClickSubmit={() => {}}
         />
@@ -53,6 +54,7 @@ describe('Post snapshot testing', () => {
           handleCklickFavorite={() => {}}
           comments={comments}
           isMore
+          showIsMoreButton
           handleCklickShowMore={() => {}}
           handleClickSubmit={() => {}}
         />
@@ -79,6 +81,7 @@ describe('Post buttons work', () => {
           handleCklickFavorite={() => {}}
           comments={comments}
           isMore
+          showIsMoreButton
           handleCklickShowMore={() => {}}
           handleClickSubmit={() => {}}
         />
@@ -104,6 +107,7 @@ describe('Post buttons work', () => {
           handleCklickFavorite={() => {}}
           comments={comments}
           isMore
+          showIsMoreButton
           handleCklickShowMore={() => {}}
           handleClickSubmit={() => {}}
         />
@@ -129,6 +133,7 @@ describe('Post buttons work', () => {
           handleCklickFavorite={handleCklickFavorite}
           comments={comments}
           isMore
+          showIsMoreButton
           handleCklickShowMore={() => {}}
           handleClickSubmit={() => {}}
         />
@@ -154,12 +159,13 @@ describe('Post buttons work', () => {
           handleCklickFavorite={() => {}}
           comments={comments}
           isMore
+          showIsMoreButton
           handleCklickShowMore={handleCklickShowMore}
           handleClickSubmit={() => {}}
         />
       </BrowserRouter>,
     );
-    fireEvent.click(screen.getByText('Show more comments', { exact: false }));
+    fireEvent.click(screen.getByTestId('showMoreBtn'));
     expect(handleCklickShowMore).toHaveBeenCalledTimes(1);
   });
 });

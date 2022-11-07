@@ -84,9 +84,10 @@ exports[`Post snapshot testing Should Post to render where isLiked and isFavorit
         </p>
         <button
           class="showMoreBtn"
+          data-testid="showMoreBtn"
           type="button"
         >
-          -----Show more comments-----
+          -----Показати більше-----
         </button>
       </div>
       <div
@@ -99,7 +100,7 @@ exports[`Post snapshot testing Should Post to render where isLiked and isFavorit
           <input
             class="formField"
             name="comment"
-            placeholder="write a comment"
+            placeholder="Напишіть коментар"
             type="text"
             value=""
           />
@@ -108,7 +109,7 @@ exports[`Post snapshot testing Should Post to render where isLiked and isFavorit
             disabled=""
             type="submit"
           >
-            Add comment
+            Додати коментар
           </button>
         </form>
       </div>
@@ -201,9 +202,10 @@ exports[`Post snapshot testing Should Post to render where isLiked and isFavorit
         </p>
         <button
           class="showMoreBtn"
+          data-testid="showMoreBtn"
           type="button"
         >
-          -----Show more comments-----
+          -----Показати більше-----
         </button>
       </div>
       <div
@@ -216,7 +218,7 @@ exports[`Post snapshot testing Should Post to render where isLiked and isFavorit
           <input
             class="formField"
             name="comment"
-            placeholder="write a comment"
+            placeholder="Напишіть коментар"
             type="text"
             value=""
           />
@@ -225,7 +227,7 @@ exports[`Post snapshot testing Should Post to render where isLiked and isFavorit
             disabled=""
             type="submit"
           >
-            Add comment
+            Додати коментар
           </button>
         </form>
       </div>

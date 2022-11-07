@@ -86,11 +86,20 @@ exports[`Post snapshot testing Should PostContainer to render with props 1`] = `
         <div
           class="comments"
         >
+          <ul>
+            <li>
+              <span>
+                Milda
+              </span>
+               xzzzxcxzc
+            </li>
+          </ul>
           <button
             class="showMoreBtn"
+            data-testid="showMoreBtn"
             type="button"
           >
-            -----Show more comments-----
+            -----Показати більше-----
           </button>
         </div>
         <div
@@ -103,7 +112,7 @@ exports[`Post snapshot testing Should PostContainer to render with props 1`] = `
             <input
               class="formField"
               name="comment"
-              placeholder="write a comment"
+              placeholder="Напишіть коментар"
               type="text"
               value=""
             />
@@ -112,7 +121,7 @@ exports[`Post snapshot testing Should PostContainer to render with props 1`] = `
               disabled=""
               type="submit"
             >
-              Add comment
+              Додати коментар
             </button>
           </form>
         </div>
