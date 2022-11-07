@@ -23,10 +23,10 @@ function Post(props) {
         </div>
         <div className={postStyles.buttonBox}>
           <div className={postStyles.groupBtn}>
-            <img src={isLiked ? './images/heart-red.svg' : './images/heart-white.svg'} onClick={handleCklickLike} alt={isLiked ? 'liked' : 'not liked'} data-testid="likeBtn" />
-            <img src="./images/comment.svg" onClick={handleCklickComments} alt="see all comments" data-testid="commentBtn" />
+            <img src={isLiked ? '../../images/heart-red.svg' : '../../images/heart-white.svg'} onClick={handleCklickLike} alt={isLiked ? 'liked' : 'not liked'} data-testid="likeBtn" />
+            <img src=".../../images/comment.svg" onClick={handleCklickComments} alt="see all comments" data-testid="commentBtn" />
           </div>
-          <img src={isFavorite ? './images/favorite-marked.svg' : './images/favorite.svg'} onClick={handleCklickFavorite} alt="favorite" data-testid="favoriteBtn" />
+          <img src={isFavorite ? '../../images/favorite-marked.svg' : '../../images/favorite.svg'} onClick={handleCklickFavorite} alt="favorite" data-testid="favoriteBtn" />
         </div>
         <p className={postStyles.description}>{description}</p>
         <div className={postStyles.comments}>

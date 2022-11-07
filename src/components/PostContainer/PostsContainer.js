@@ -106,7 +106,7 @@ function PostsContainer({ posts, postStyles }) {
       comments = createCommentElement(postId, post.comments);
     }
     const isMore = !(post.comments.length > 1 && showMoreComments.includes(postId));
-    const showIsMoreButton = post.comments.length > 1;
+    const showIsMoreButton = post.comments.length > 1 && !isOpenPost;
 
     return (
       <Post
