@@ -37,10 +37,13 @@ exports[`Post snapshot testing Should Post to render where isLiked and isFavorit
           </div>
         </div>
       </div>
-      <img
-        alt="Big Dog and Small Girl"
+      <div
         class="maneFoto"
-      />
+      >
+        <img
+          alt="Big Dog and Small Girl"
+        />
+      </div>
       <div
         class="buttonBox"
       >
@@ -68,50 +71,46 @@ exports[`Post snapshot testing Should Post to render where isLiked and isFavorit
         class="description"
       />
       <div
-        class="commentBox"
+        class="comments"
       >
-        <div
-          class="comments"
+        <p>
+          comment1
+        </p>
+        <p>
+          comment2
+        </p>
+        <p>
+          comment3
+        </p>
+        <button
+          class="showMoreBtn"
+          type="button"
         >
-          <p>
-            comment1
-          </p>
-          <p>
-            comment2
-          </p>
-          <p>
-            comment3
-          </p>
+          -----Show more comments-----
+        </button>
+      </div>
+      <div
+        class="addComment"
+      >
+        <form
+          action="#"
+          class="form"
+        >
+          <input
+            class="formField"
+            name="comment"
+            placeholder="write a comment"
+            type="text"
+            value=""
+          />
           <button
-            class="showMoreBtn"
-            type="button"
+            class="btnSubmit"
+            disabled=""
+            type="submit"
           >
-            -----Show more comments-----
+            Add comment
           </button>
-        </div>
-        <div
-          class="addComment"
-        >
-          <form
-            action="#"
-            class="form"
-          >
-            <input
-              class="formField"
-              name="comment"
-              placeholder="write a comment"
-              type="text"
-              value=""
-            />
-            <button
-              class="btnSubmit"
-              disabled=""
-              type="submit"
-            >
-              Add comment
-            </button>
-          </form>
-        </div>
+        </form>
       </div>
     </div>
   </div>
@@ -155,10 +154,13 @@ exports[`Post snapshot testing Should Post to render where isLiked and isFavorit
           </div>
         </div>
       </div>
-      <img
-        alt="Big Dog and Small Girl"
+      <div
         class="maneFoto"
-      />
+      >
+        <img
+          alt="Big Dog and Small Girl"
+        />
+      </div>
       <div
         class="buttonBox"
       >
@@ -186,50 +188,46 @@ exports[`Post snapshot testing Should Post to render where isLiked and isFavorit
         class="description"
       />
       <div
-        class="commentBox"
+        class="comments"
       >
-        <div
-          class="comments"
+        <p>
+          comment1
+        </p>
+        <p>
+          comment2
+        </p>
+        <p>
+          comment3
+        </p>
+        <button
+          class="showMoreBtn"
+          type="button"
         >
-          <p>
-            comment1
-          </p>
-          <p>
-            comment2
-          </p>
-          <p>
-            comment3
-          </p>
+          -----Show more comments-----
+        </button>
+      </div>
+      <div
+        class="addComment"
+      >
+        <form
+          action="#"
+          class="form"
+        >
+          <input
+            class="formField"
+            name="comment"
+            placeholder="write a comment"
+            type="text"
+            value=""
+          />
           <button
-            class="showMoreBtn"
-            type="button"
+            class="btnSubmit"
+            disabled=""
+            type="submit"
           >
-            -----Show more comments-----
+            Add comment
           </button>
-        </div>
-        <div
-          class="addComment"
-        >
-          <form
-            action="#"
-            class="form"
-          >
-            <input
-              class="formField"
-              name="comment"
-              placeholder="write a comment"
-              type="text"
-              value=""
-            />
-            <button
-              class="btnSubmit"
-              disabled=""
-              type="submit"
-            >
-              Add comment
-            </button>
-          </form>
-        </div>
+        </form>
       </div>
     </div>
   </div>

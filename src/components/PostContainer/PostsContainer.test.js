@@ -5,6 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 import PostsContainer from './PostsContainer';
 import * as actions from '../../store/posts/actionCreators';
 import '@testing-library/jest-dom';
+import * as modalActions from '../../store/modal/actionCreators';
 
 jest.mock('react-redux');
 
@@ -144,5 +145,26 @@ describe('PostContainer functions work', () => {
     fireEvent.click(screen.getByText('Show more comments', { exact: false }));
     expect(dispatch).toHaveBeenCalledTimes(1);
     expect(handleCklickShowMore).toHaveBeenCalledTimes(1);
+  });
+
+  test('Click on button comments', () => {
+    const changeIsOpenPost = jest.spyOn(actions, 'changeIsOpenPost');
+    const getPostById = jest.spyOn(actions, 'getPostById');
+    const showMoreComments = useSelector.mockReturnValue([]);
+    const loggedUser = useSelector.mockReturnValue(user);
+    const users = useSelector.mockReturnValue(usersArray);
+
+    const dispatch = jest.fn();
+    useDispatch.mockReturnValue(dispatch);
+
+    render(
+      <BrowserRouter>
+        <PostsContainer posts={posts} />
+      </BrowserRouter>,
+    );
+    fireEvent.click(screen.getByTestId('commentBtn'));
+    expect(dispatch).toHaveBeenCalledTimes(2);
+    expect(getPostById).toHaveBeenCalledTimes(1);
+    expect(changeIsOpenPost).toHaveBeenCalledTimes(1);
   });
 });

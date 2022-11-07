@@ -1,5 +1,5 @@
 import {
-  GET_POSTS, GET_POST_BY_ID, GET_POSTS_BY_USER_ID, ADD_POST, UPDATE_POST, DELETE_POST, SHOW_MORE_CHANGE, GET_NEW_PAGE_POSTS, CLEAR_POSTS, GET_FAVORITE_POSTS,
+  GET_POSTS, GET_POST_BY_ID, GET_POSTS_BY_USER_ID, ADD_POST, UPDATE_POST, DELETE_POST, SHOW_MORE_CHANGE, GET_NEW_PAGE_POSTS, CLEAR_POSTS, GET_FAVORITE_POSTS, CHANGE_ISOPENPOST,
 } from './actiions';
 
 export const getPosts = () => async (dispatch) => {
@@ -67,3 +67,5 @@ export const getFavoritePostsByUserId = (payload) => async (dispatch) => {
   const posts = await fetch(`http://localhost:3001/posts/favorite/${payload}`).then((res) => res.json()).then((data) => data.data);
   dispatch({ type: GET_FAVORITE_POSTS, payload: posts });
 };
+
+export const changeIsOpenPost = (payload) => ({ type: CHANGE_ISOPENPOST, payload });
