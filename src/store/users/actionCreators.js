@@ -2,23 +2,25 @@ import {
   LOGGING_USER, GET_USERS, GET_USER_BY_ID, ADD_USER, UPDATE_USER, DELETE_USER, GET_SUBSCRIBERS_BY_USER_ID,
 } from './actiions';
 
+const SERVER_URL = 'https://nameless-lake-66137.herokuapp.com';
+
 export const loggedUserReceiveData = (payload) => async (dispatch) => {
-  const user = await fetch(`http://localhost:3001/users/${payload}`).then((res) => res.json()).then((data) => data.data);
+  const user = await fetch(`${SERVER_URL}/users/${payload}`).then((res) => res.json()).then((data) => data.data);
   dispatch({ type: LOGGING_USER, payload: user });
 };
 
 export const getUsers = () => async (dispatch) => {
-  const users = await fetch('http://localhost:3001/users').then((res) => res.json()).then((data) => data.data);
+  const users = await fetch(`${SERVER_URL}/users`).then((res) => res.json()).then((data) => data.data);
   dispatch({ type: GET_USERS, payload: users });
 };
 
 export const getUserById = (payload) => async (dispatch) => {
-  const user = await fetch(`http://localhost:3001/users/${payload}`).then((res) => res.json()).then((data) => data.data);
+  const user = await fetch(`${SERVER_URL}/users/${payload}`).then((res) => res.json()).then((data) => data.data);
   dispatch({ type: GET_USER_BY_ID, payload: user });
 };
 
 export const addNewUser = (payload) => async (dispatch) => {
-  const user = await fetch('http://localhost:3001/users', {
+  const user = await fetch(`${SERVER_URL}/users`, {
     method: 'POST',
     mode: 'cors',
     headers: {
@@ -30,7 +32,7 @@ export const addNewUser = (payload) => async (dispatch) => {
 };
 
 export const updateUser = (payload) => async (dispatch) => {
-  const users = await fetch(`http://localhost:3001/users/${payload.id}`, {
+  const users = await fetch(`${SERVER_URL}/users/${payload.id}`, {
     method: 'PUT',
     mode: 'cors',
     headers: {
@@ -42,7 +44,7 @@ export const updateUser = (payload) => async (dispatch) => {
 };
 
 export const deleteUser = (payload) => async (dispatch) => {
-  const users = await fetch(`http://localhost:3001/users/${payload}`, {
+  const users = await fetch(`${SERVER_URL}/users/${payload}`, {
     method: 'DELETE',
     mode: 'cors',
     headers: { 'Content-Type': 'aplication/json' },
@@ -51,6 +53,6 @@ export const deleteUser = (payload) => async (dispatch) => {
 };
 
 export const getSubscribersByUserId = (payload) => async (dispatch) => {
-  const subscribers = await fetch(`http://localhost:3001/users/subscribers/${payload}`).then((res) => res.json()).then((data) => data.data);
+  const subscribers = await fetch(`${SERVER_URL}/users/${payload}`).then((res) => res.json()).then((data) => data.data);
   dispatch({ type: GET_SUBSCRIBERS_BY_USER_ID, payload: subscribers });
 };

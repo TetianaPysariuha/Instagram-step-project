@@ -42,7 +42,7 @@ function CommentForm({ postId }) {
             className={styles.formField}
             name="comment"
             type="text"
-            placeholder="write a comment"
+            placeholder="Напишіть коментар"
           />
 
           <button
@@ -50,7 +50,7 @@ function CommentForm({ postId }) {
             disabled={!dirty || !isValid}
             type="submit"
           >
-            Add comment
+            Опублікувати
           </button>
         </Form>
       )}

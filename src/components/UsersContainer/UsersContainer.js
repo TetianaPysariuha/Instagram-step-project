@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import styles from './UsersContainer.module.scss';
 import UserName from '../UserName/UserName';
-import { updateUser, getUserById } from '../../store/users/actionCreators';
+import { updateUser } from '../../store/users/actionCreators';
 
 function UsersContainer({ isButton, users, loggedUser }) {
   const dispatch = useDispatch();
@@ -19,7 +19,6 @@ function UsersContainer({ isButton, users, loggedUser }) {
       newFollowBy.push(userId);
     }
     dispatch(updateUser({ id: loggedUser._id, data: { followBy: newFollowBy } }));
-    dispatch(getUserById(loggedUser._id));
   };
 
   const getUserName = (user) => (

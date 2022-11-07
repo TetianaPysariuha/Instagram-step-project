@@ -6,13 +6,14 @@ import CommentForm from '../CommentForm/CommentForm';
 
 function Post(props) {
   const {
-    postId, userName, mainImg, title, description, isLiked, handleCklickLike, handleCklickComments, isFavorite, handleCklickFavorite, comments, isMore, handleCklickShowMore, style,
+    postId, userName, mainImg, title, description, isLiked, handleCklickLike, handleCklickComments, isFavorite, handleCklickFavorite, comments, isMore, handleCklickShowMore, style, showIsMoreButton,
   } = props;
 
   let postStyles = styles;
   if (style) {
     postStyles = style;
   }
+
   return (
     <div key={postId} className={postStyles.postContainier}>
       <div className={postStyles.postWrapper}>
@@ -30,7 +31,7 @@ function Post(props) {
         <p className={postStyles.description}>{description}</p>
         <div className={postStyles.comments}>
           {comments}
-          <button type="button" className={postStyles.showMoreBtn} onClick={handleCklickShowMore}>{isMore ? 'Show more comments' : 'Show less comments'}</button>
+          {showIsMoreButton && <button type="button" className={postStyles.showMoreBtn} onClick={handleCklickShowMore} data-testid="showMoreBtn">{isMore ? 'Показати більше' : 'Показати меньше'}</button>}
         </div>
         <div className={postStyles.addComment}>
           <CommentForm postId={postId} />

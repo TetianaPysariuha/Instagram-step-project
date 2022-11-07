@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CommentForm snapshot testing Should Modal to render 1`] = `
+exports[`CommentForm snapshot testing Should CommentForm to render 1`] = `
 <DocumentFragment>
   <form
     action="#"
@@ -9,7 +9,7 @@ exports[`CommentForm snapshot testing Should Modal to render 1`] = `
     <input
       class="formField"
       name="comment"
-      placeholder="write a comment"
+      placeholder="Напишіть коментар"
       type="text"
       value=""
     />
@@ -18,7 +18,7 @@ exports[`CommentForm snapshot testing Should Modal to render 1`] = `
       disabled=""
       type="submit"
     >
-      Add comment
+      Додати коментар
     </button>
   </form>
 </DocumentFragment>

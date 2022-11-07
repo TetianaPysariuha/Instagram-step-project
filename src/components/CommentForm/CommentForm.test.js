@@ -5,7 +5,7 @@ import '@testing-library/jest-dom';
 jest.mock('react-redux');
 
 describe('CommentForm snapshot testing', () => {
-  test('Should Modal to render', () => {
+  test('Should CommentForm to render', () => {
     const { asFragment } = render(<CommentForm postId="1" />);
     expect(asFragment()).toMatchSnapshot();
   });

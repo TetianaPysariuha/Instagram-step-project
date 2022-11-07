@@ -49,6 +49,7 @@ exports[`Post snapshot testing Should PostContainer to render with props 1`] = `
         </div>
         <div
           class="maneFoto"
+          style="background-image: url(https://res.cloudinary.com/dx84fdyhd/image/upload/v1667755090/instagram/post14_dmu9vm.jpg);"
         >
           <img
             alt="Some post for deleting user"
@@ -86,12 +87,14 @@ exports[`Post snapshot testing Should PostContainer to render with props 1`] = `
         <div
           class="comments"
         >
-          <button
-            class="showMoreBtn"
-            type="button"
-          >
-            -----Show more comments-----
-          </button>
+          <ul>
+            <li>
+              <span>
+                Milda
+              </span>
+               xzzzxcxzc
+            </li>
+          </ul>
         </div>
         <div
           class="addComment"
@@ -103,7 +106,7 @@ exports[`Post snapshot testing Should PostContainer to render with props 1`] = `
             <input
               class="formField"
               name="comment"
-              placeholder="write a comment"
+              placeholder="Напишіть коментар"
               type="text"
               value=""
             />
@@ -112,7 +115,7 @@ exports[`Post snapshot testing Should PostContainer to render with props 1`] = `
               disabled=""
               type="submit"
             >
-              Add comment
+              Додати коментар
             </button>
           </form>
         </div>

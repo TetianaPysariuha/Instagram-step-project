@@ -108,6 +108,7 @@ function PostsContainer({ posts, postStyles }) {
       comments = createCommentElement(postId, post.comments);
     }
     const isMore = !(post.comments.length > 1 && showMoreComments.includes(postId));
+    const showIsMoreButton = post.comments.length > 1 && !isOpenPost;
 
     return (
       <Post
@@ -125,6 +126,7 @@ function PostsContainer({ posts, postStyles }) {
         handleCklickFavorite={() => handleCklickFavorite(postId, loggedUser._id)}
         comments={comments}
         isMore={isMore}
+        showIsMoreButton={showIsMoreButton}
         handleCklickShowMore={() => handleCklickShowMore(postId)}
       />
     );

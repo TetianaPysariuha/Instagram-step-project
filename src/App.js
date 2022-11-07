@@ -11,9 +11,9 @@ import AppRoutes from './AppRoutes';
 
 function App() {
   const { isOpenModal } = useSelector((store) => store.modal);
-  const loggedUserId = '635429e5461d59d5a106db66';
-
   const dispatch = useDispatch();
+
+  const loggedUserId = '635429e5461d59d5a106db66';
 
   useEffect(() => {
     dispatch(loggedUserReceiveData(loggedUserId));
