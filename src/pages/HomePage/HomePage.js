@@ -48,7 +48,7 @@ function HomePage() {
     <div className={styles.homePage}>
       {posts.length > 0 && <PostsContainer />}
       <div className={styles.users}>
-        <UserName image={loggedUser.avatar} nickname={loggedUser.nik} additionalString={loggedUser.name} />
+        <UserName id={loggedUser._id} image={loggedUser.avatar} nickname={loggedUser.nik} additionalString={loggedUser.name} />
         {!isLoading && followByListUsers.length > 0 && <UsersContainer isButton={false} users={followByListUsers} loggedUser={loggedUserfull} />}
         {!isLoading && otherUsers.length > 0 && <UsersContainer isButton users={otherUsers} loggedUser={loggedUserfull} />}
       </div>

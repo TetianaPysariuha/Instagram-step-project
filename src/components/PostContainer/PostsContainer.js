@@ -83,8 +83,6 @@ function PostsContainer({ posts, postStyles }) {
     dispatch(changeIsOpenPost(true));
   };
 
-  console.log(currentPost);
-
   useEffect(() => {
     if (currentPost._id && isOpenPost) {
       dispatch(openModalAC(<PostsContainer postStyles={postStyle} posts={[currentPost]} />));

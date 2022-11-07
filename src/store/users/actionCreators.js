@@ -53,6 +53,6 @@ export const deleteUser = (payload) => async (dispatch) => {
 };
 
 export const getSubscribersByUserId = (payload) => async (dispatch) => {
-  const subscribers = await fetch(`${SERVER_URL}/users/${payload}`).then((res) => res.json()).then((data) => data.data);
+  const subscribers = await fetch(`${SERVER_URL}/users/subscribers/${payload}`).then((res) => res.json()).then((data) => data.data);
   dispatch({ type: GET_SUBSCRIBERS_BY_USER_ID, payload: subscribers });
 };
