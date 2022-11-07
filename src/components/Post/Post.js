@@ -17,7 +17,7 @@ function Post(props) {
     <div key={postId} className={postStyles.postContainier}>
       <div className={postStyles.postWrapper}>
         {userName}
-        <div className={postStyles.maneFoto}>
+        <div className={postStyles.maneFoto} style={{ backgroundImage: `url(${mainImg})` }}>
           <img src={mainImg} onDoubleClick={handleCklickLike} alt={title} />
         </div>
         <div className={postStyles.buttonBox}>
@@ -30,7 +30,7 @@ function Post(props) {
         <p className={postStyles.description}>{description}</p>
         <div className={postStyles.comments}>
           {comments}
-          <button type="button" className={postStyles.showMoreBtn} onClick={handleCklickShowMore}>{isMore ? '-----Show more comments-----' : '-----Show less comments-----'}</button>
+          <button type="button" className={postStyles.showMoreBtn} onClick={handleCklickShowMore}>{isMore ? 'Show more comments' : 'Show less comments'}</button>
         </div>
         <div className={postStyles.addComment}>
           <CommentForm postId={postId} />

@@ -1,7 +1,7 @@
 .homePage {
     width: 100%;
-    display: grid;
-    grid-template-columns: 3fr 1fr;
+    display: flex;
+    justify-content: center;
     margin-right: 100px;
 
 }
