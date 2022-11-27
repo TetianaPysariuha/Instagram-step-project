@@ -1,13 +1,13 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-underscore-dangle */
-import React, { memo, useEffect } from 'react';
+import React, { memo/* , useEffect  */ } from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import styles from './PostsContainer.module.scss';
 import Post from '../Post/Post';
 import UserName from '../UserName/UserName';
 import {
-  updatePost, showMoreChange, getPostById, changeIsOpenPost,
+  updatePost, showMoreChange, getPostById, clearCurrentPost, /* changeIsOpenPost, */
 } from '../../store/posts/actionCreators';
 import { openModalAC } from '../../store/modal/actionCreators';
 import postStyle from '../Post/PostHorisontal.module.scss';
@@ -22,7 +22,7 @@ function PostsContainer({ posts, postStyles }) {
   const isOpenPost = useSelector((store) => store.posts.isOpenPost);
   const isOpenModal = useSelector((store) => store.modal.isOpenModal);
 
-  const postsList = posts || postsStore;
+  const postsList = isOpenModal ? [currentPost] : null || posts || postsStore;
   const style = postStyles || null;
 
   const handleCklickLike = (postId, userId) => {
@@ -79,23 +79,10 @@ function PostsContainer({ posts, postStyles }) {
   };
 
   const handleCklickComments = (postId) => {
+    dispatch(clearCurrentPost());
     dispatch(getPostById(postId));
-    dispatch(changeIsOpenPost(true));
+    dispatch(openModalAC(<PostsContainer postStyles={postStyle} posts={[currentPost]} />));
   };
-
-  console.log(currentPost);
-
-  useEffect(() => {
-    if (currentPost._id && isOpenPost) {
-      dispatch(openModalAC(<PostsContainer postStyles={postStyle} posts={[currentPost]} />));
-    }
-  }, [currentPost]);
-
-  useEffect(() => {
-    if (!isOpenModal && isOpenPost) {
-      dispatch(changeIsOpenPost(false));
-    }
-  }, [isOpenModal]);
 
   const getPostElement = (post) => {
     const {
@@ -134,7 +121,7 @@ function PostsContainer({ posts, postStyles }) {
 
   return (
     <div className={styles.postContainer}>
-      {(postsList.length > 0 || currentPost) && users.length > 0 && postsList.map((post) => getPostElement(post))}
+      {((postsList.length > 0 && postsList[0]._id) || currentPost._id) && users.length > 0 && postsList.map((post) => getPostElement(post))}
     </div>
   );
 }

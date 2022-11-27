@@ -1,11 +1,18 @@
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
 import { loggedUserReceiveData, updateUser } from '../../store/users/actionCreators';
 import styles from './FollowBtn.module.scss';
 
 function FollowBtn({ currentUserId, loggedUserId }) {
   const dispatch = useDispatch();
   const followBy = useSelector((store) => store.users.loggedUser.followBy) || [];
+
+  useEffect(() => {
+    if (loggedUserId) {
+      dispatch(loggedUserReceiveData(loggedUserId));
+    }
+  }, [dispatch, loggedUserId]);
 
   if (loggedUserId === currentUserId) {
     return (<span className={styles.yourAccSpan}>це ваш аккаунт</span>);

@@ -1,5 +1,5 @@
 import {
-  GET_POSTS, GET_POST_BY_ID, GET_POSTS_BY_USER_ID, ADD_POST, UPDATE_POST, DELETE_POST, SHOW_MORE_CHANGE, GET_NEW_PAGE_POSTS, CLEAR_POSTS, GET_FAVORITE_POSTS, CHANGE_ISOPENPOST,
+  GET_POSTS, GET_POST_BY_ID, GET_POSTS_BY_USER_ID, ADD_POST, UPDATE_POST, DELETE_POST, SHOW_MORE_CHANGE, GET_NEW_PAGE_POSTS, CLEAR_POSTS, GET_FAVORITE_POSTS, CLEAR_CURRENT_POST,
 } from './actiions';
 
 const SERVER_URL = 'https://nameless-lake-66137.herokuapp.com';
@@ -70,4 +70,4 @@ export const getFavoritePostsByUserId = (payload) => async (dispatch) => {
   dispatch({ type: GET_FAVORITE_POSTS, payload: posts });
 };
 
-export const changeIsOpenPost = (payload) => ({ type: CHANGE_ISOPENPOST, payload });
+export const clearCurrentPost = () => ({ type: CLEAR_CURRENT_POST });
