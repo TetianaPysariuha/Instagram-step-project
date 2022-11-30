@@ -48,9 +48,6 @@ const postsReduser = (state = initialState, action) => {
       return { ...state, favorites: action.payload };
     }
     case ADD_POST: {
-      /* const newPosts = [...state.posts];
-      newPosts.push(action.payload);
-      return { ...state, posts: newPosts }; */
       return state;
     }
     case UPDATE_POST: {

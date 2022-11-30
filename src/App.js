@@ -18,7 +18,6 @@ function App() {
   useEffect(() => {
     dispatch(loggedUserReceiveData(loggedUserId));
     dispatch(getUsers());
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch]);
 
   return (

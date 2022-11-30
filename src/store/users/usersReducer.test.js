@@ -1,6 +1,6 @@
 import reduser from './reducer';
 import {
-  LOGGING_USER, GET_USERS, GET_USER_BY_ID, ADD_USER, UPDATE_USER, DELETE_USER, GET_SUBSCRIBERS_BY_USER_ID,
+  LOGGING_USER, GET_USERS, GET_USER_BY_ID, ADD_USER, UPDATE_USER, DELETE_USER, GET_SUBSCRIBERS_BY_USER_ID, CLEAR_CURRENT_USER,
 } from './actiions';
 
 const user = {
@@ -103,6 +103,13 @@ const deleteUser = {
   subscribers: [],
 };
 
+const clearCurrentUser = {
+  users: [],
+  currentUser: {},
+  loggedUser: {},
+  subscribers: [],
+};
+
 const getSubscribersByUserId = {
   users: [],
   currentUser: {},
@@ -175,5 +182,11 @@ describe('Reducers testing', () => {
       type: LOGGING_USER,
       payload: user,
     }))).toEqual(JSON.stringify(logedUser));
+  });
+
+  test('Should return with action CLEAR_CURRENT_USER', () => {
+    expect(JSON.stringify(reduser(getUserById, {
+      type: CLEAR_CURRENT_USER,
+    }))).toEqual(JSON.stringify(clearCurrentUser));
   });
 });

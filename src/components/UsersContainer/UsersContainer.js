@@ -8,6 +8,7 @@ import { updateUser } from '../../store/users/actionCreators';
 
 function UsersContainer({ isButton, users, loggedUser }) {
   const dispatch = useDispatch();
+  const usersChecked = users || [];
 
   const handleClickSubscribe = (userId) => {
     let newFollowBy;
@@ -39,7 +40,7 @@ function UsersContainer({ isButton, users, loggedUser }) {
   return (
     <div className={styles.userContainer}>
       <ul>
-        {users.length > 0 && loggedUser && users.map((user) => getUserName(user))}
+        { usersChecked.length > 0 && loggedUser && usersChecked.map((user) => getUserName(user))}
       </ul>
     </div>
   );

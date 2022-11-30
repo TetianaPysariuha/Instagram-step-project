@@ -1,5 +1,5 @@
 import {
-  LOGGING_USER, GET_USERS, GET_USER_BY_ID, ADD_USER, UPDATE_USER, DELETE_USER, GET_SUBSCRIBERS_BY_USER_ID,
+  LOGGING_USER, GET_USERS, GET_USER_BY_ID, ADD_USER, UPDATE_USER, DELETE_USER, GET_SUBSCRIBERS_BY_USER_ID, CLEAR_CURRENT_USER,
 } from './actiions';
 
 const initialState = {
@@ -37,6 +37,9 @@ const usersReducer = (state = initialState, action) => {
     }
     case GET_SUBSCRIBERS_BY_USER_ID: {
       return { ...state, subscribers: action.payload };
+    }
+    case CLEAR_CURRENT_USER: {
+      return { ...state, currentUser: {} };
     }
     default: {
       return state;
