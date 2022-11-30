@@ -7,7 +7,7 @@ import styles from './PostsContainer.module.scss';
 import Post from '../Post/Post';
 import UserName from '../UserName/UserName';
 import {
-  updatePost, showMoreChange, getPostById, clearCurrentPost, /* changeIsOpenPost, */
+  updatePost, showMoreChange, getPostById, clearCurrentPost,
 } from '../../store/posts/actionCreators';
 import { openModalAC } from '../../store/modal/actionCreators';
 import postStyle from '../Post/PostHorisontal.module.scss';
@@ -19,10 +19,9 @@ function PostsContainer({ posts, postStyles }) {
   const currentPost = useSelector((store) => store.posts.currentPost);
   const loggedUser = useSelector((store) => store.users.loggedUser);
   const users = useSelector((store) => store.users.users);
-  const isOpenPost = useSelector((store) => store.posts.isOpenPost);
   const isOpenModal = useSelector((store) => store.modal.isOpenModal);
 
-  const postsList = isOpenModal ? [currentPost] : null || posts || postsStore;
+  const postsList = (isOpenModal ? [currentPost] : null) || posts || postsStore;
   const style = postStyles || null;
 
   const handleCklickLike = (postId, userId) => {
@@ -95,7 +94,7 @@ function PostsContainer({ posts, postStyles }) {
       comments = createCommentElement(postId, post.comments);
     }
     const isMore = !(post.comments.length > 1 && showMoreComments.includes(postId));
-    const showIsMoreButton = post.comments.length > 1 && !isOpenPost;
+    const showIsMoreButton = post.comments.length > 1 && !isOpenModal;
 
     return (
       <Post
@@ -154,6 +153,7 @@ PostsContainer.prototype = {
 
 Post.defaultProps = {
   posts: [],
+  postStyles: null,
 };
 
 export default memo(PostsContainer);

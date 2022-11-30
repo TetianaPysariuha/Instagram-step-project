@@ -58,7 +58,7 @@ function HomePage() {
       <>
         <PostsContainer />
         <div className={styles.users}>
-          <UserName image={loggedUser.avatar} nickname={loggedUser.nik} additionalString={loggedUser.name} />
+          <UserName id={loggedUser._id} image={loggedUser.avatar} nickname={loggedUser.nik} additionalString={loggedUser.name} />
           <UsersContainer isButton={false} users={followByListUsers} loggedUser={loggedUserfull} />
           <UsersContainer isButton users={otherUsers} loggedUser={loggedUserfull} />
         </div>
