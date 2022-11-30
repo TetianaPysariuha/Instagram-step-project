@@ -53,7 +53,7 @@ function PostsContainer({ posts, postStyles }) {
   };
 
   const createCommentElement = (postId, comments) => {
-    if (showMoreComments.includes(postId)) {
+    if (showMoreComments.includes(postId) || isOpenModal) {
       return (
         <ul>
           {comments.map((el) => (

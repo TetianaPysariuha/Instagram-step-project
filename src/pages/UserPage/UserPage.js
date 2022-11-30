@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import styles from './UserPage.module.scss';
 import defaultAvatar from './default-avatar.jpg';
-import { getSubscribersByUserId, getUserById } from '../../store/users/actionCreators';
+import { getSubscribersByUserId, getUserById, clearCurrentUser } from '../../store/users/actionCreators';
 import Preloaders from '../../components/preloaders/Preloaders';
 import FollowBtn from '../../components/FollowBtn/FollowBtn';
 import PostSvg from './PostsSvg/PostSvg';
@@ -25,13 +25,19 @@ function UserPage() {
   const followers = useSelector((store) => store.users.subscribers);
   const loggedUser = useSelector((store) => store.users.loggedUser);
   const favorite = useSelector((store) => store.posts.favorites);
+  const allPosts = useSelector((store) => store.posts.posts);
   /* const loggedUserFollowBy = useSelector((store) => store.users.loggedUser.followBy); */
 
   useEffect(() => {
+    dispatch(clearCurrentUser());
     dispatch(getUserById(id));
     dispatch(getSubscribersByUserId(id));
     dispatch(getFavoritePostsByUserId(id));
   }, [dispatch, id]);
+
+  useEffect(() => {
+    dispatch(getFavoritePostsByUserId(id));
+  }, [dispatch, allPosts]);
 
   if (!_id) {
     return (

@@ -293,7 +293,6 @@ describe('PostContainer functions work', () => {
 
   test('Click on button comments', () => {
     const getPostById = jest.spyOn(actions, 'getPostById');
-    /* const mockeduseDispatch = jest.mock('useDispatch'); */
 
     const store = mockStore({
       modal: {
@@ -327,11 +326,7 @@ describe('PostContainer functions work', () => {
       </Provider>,
     );
 
-    /* const dispatch = jest.fn();
-    useDispatch.mockReturnValue(dispatch); */
-
     fireEvent.click(screen.getByTestId('commentBtn'));
     expect(store.dispatch).toHaveBeenCalledTimes(3);
-    /* expect(getPostById).toHaveBeenCalledTimes(1); */
   });
 });
