@@ -13,7 +13,7 @@ const modalReducer = (state = initialState, action) => {
       return { content: action.payload, isOpenModal: true };
     }
     case CLOSE_MODAL: {
-      return { ...state, isOpenModal: false };
+      return { content: '<></>', isOpenModal: false };
     }
     default: {
       return state;

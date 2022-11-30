@@ -7,6 +7,7 @@ import { openModalAC } from '../../store/modal/actionCreators';
 import styles from './UserPostContainer.module.scss';
 import PostsContainer from '../PostContainer/PostsContainer';
 import postStyle from '../Post/PostHorisontal.module.scss';
+import { getPostById, clearCurrentPost } from '../../store/posts/actionCreators';
 
 function UserPostContainer({
   posts, nik, avatar, _id,
@@ -25,7 +26,9 @@ function UserPostContainer({
           <li className={styles.listItem} key={post._id}>
             <div
               onClick={() => {
-                dispatch(openModalAC(<PostsContainer postStyles={postStyle} posts={[post]} />));
+                dispatch(clearCurrentPost());
+                dispatch(getPostById(post._id));
+                dispatch(openModalAC(<PostsContainer postStyles={postStyle} /* posts={[post]} */ />));
               }}
               className={styles.post}
             >

@@ -18,7 +18,7 @@ exports[`CommentForm snapshot testing Should CommentForm to render 1`] = `
       disabled=""
       type="submit"
     >
-      Додати коментар
+      Опублікувати
     </button>
   </form>
 </DocumentFragment>

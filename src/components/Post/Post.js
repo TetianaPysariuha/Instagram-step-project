@@ -18,8 +18,8 @@ function Post(props) {
     <div key={postId} className={postStyles.postContainier}>
       <div className={postStyles.postWrapper}>
         {userName}
-        <div className={postStyles.maneFoto} style={{ backgroundImage: `url(${mainImg})` }}>
-          <img src={mainImg} onDoubleClick={handleCklickLike} alt={title} />
+        <div className={postStyles.maneFoto} onDoubleClick={handleCklickLike} style={{ backgroundImage: `url(${mainImg})` }}>
+          <img src={mainImg} alt={title} />
         </div>
         <div className={postStyles.buttonBox}>
           <div className={postStyles.groupBtn}>

@@ -1,13 +1,16 @@
 /* eslint-disable no-unused-vars */
 import { render, screen, fireEvent } from '@testing-library/react';
-import { useDispatch, useSelector } from 'react-redux';
+import { Provider, useDispatch } from 'react-redux';
+import configureStore from 'redux-mock-store';
 import { BrowserRouter } from 'react-router-dom';
+import * as redux from 'react-redux';
+import thunk from 'redux-thunk';
 import PostsContainer from './PostsContainer';
 import * as actions from '../../store/posts/actionCreators';
 import '@testing-library/jest-dom';
 import * as modalActions from '../../store/modal/actionCreators';
 
-jest.mock('react-redux');
+const mockStore = configureStore([]);
 
 const post = {
   _id: '63558b3d161b35a6d8b4d9ff',
@@ -33,7 +36,6 @@ const post = {
     _id: '635d2d4305351e1ae65b6ddd',
   }],
   seeCount: 999,
-  __v: 0,
   user: {
     _id: '635429e5461d59d5a106db66',
     avatar: 'https://res.cloudinary.com/dx84fdyhd/image/upload/v1667755687/instagram/avatar/1_wfz4lc.jpg',
@@ -68,36 +70,101 @@ const user = {
 const usersArray = [user];
 
 describe('Post snapshot testing', () => {
-/*   test('Should PostContainer to render without props', () => {
-    const postsStore = useSelector.mockReturnValue(posts);
-    const showMoreComments = useSelector.mockReturnValue([]);
-    const loggedUser = useSelector.mockReturnValue(user);
-    const users = useSelector.mockReturnValue(usersArray);
-
-    const dispatch = jest.fn();
-    useDispatch.mockReturnValue(dispatch);
+  test('Should PostContainer to render without props', () => {
+    const store = mockStore({
+      modal: {
+        content: '<></>',
+        isOpenModal: false,
+      },
+      users: {
+        users: usersArray,
+        currentUser: user,
+        loggedUser: user,
+        subscribers: [],
+      },
+      posts: {
+        posts,
+        currentPost: {},
+        showMoreComments: [],
+        page: 0,
+        postsOnPage: 3,
+        totalPostsOnServer: 0,
+        favorites: [],
+      },
+    });
 
     const { asFragment } = render(
-      <BrowserRouter>
-        <PostsContainer />
-      </BrowserRouter>,
+      <Provider store={store}>
+        <BrowserRouter>
+          <PostsContainer />
+        </BrowserRouter>
+      </Provider>,
     );
     expect(asFragment()).toMatchSnapshot();
-  }); */
+  });
 
   test('Should PostContainer to render with props', () => {
-    const postsStore = useSelector.mockReturnValue(posts);
-    const showMoreComments = useSelector.mockReturnValue([]);
-    const loggedUser = useSelector.mockReturnValue(user);
-    const users = useSelector.mockReturnValue(usersArray);
-
-    const dispatch = jest.fn();
-    useDispatch.mockReturnValue(dispatch);
+    const store = mockStore({
+      modal: {
+        content: '<></>',
+        isOpenModal: false,
+      },
+      users: {
+        users: usersArray,
+        currentUser: user,
+        loggedUser: user,
+        subscribers: [],
+      },
+      posts: {
+        posts: [],
+        currentPost: {},
+        showMoreComments: [],
+        page: 0,
+        postsOnPage: 3,
+        totalPostsOnServer: 0,
+        favorites: [],
+      },
+    });
 
     const { asFragment } = render(
-      <BrowserRouter>
-        <PostsContainer posts={posts} />
-      </BrowserRouter>,
+      <Provider store={store}>
+        <BrowserRouter>
+          <PostsContainer posts={posts} />
+        </BrowserRouter>
+      </Provider>,
+    );
+    expect(asFragment()).toMatchSnapshot();
+  });
+
+  test('Should PostContainer to render with open Modal', () => {
+    const store = mockStore({
+      modal: {
+        content: '<></>',
+        isOpenModal: true,
+      },
+      users: {
+        users: usersArray,
+        currentUser: user,
+        loggedUser: user,
+        subscribers: [],
+      },
+      posts: {
+        posts: [],
+        currentPost: post,
+        showMoreComments: [],
+        page: 0,
+        postsOnPage: 3,
+        totalPostsOnServer: 0,
+        favorites: [],
+      },
+    });
+
+    const { asFragment } = render(
+      <Provider store={store}>
+        <BrowserRouter>
+          <PostsContainer />
+        </BrowserRouter>
+      </Provider>,
     );
     expect(asFragment()).toMatchSnapshot();
   });
@@ -106,81 +173,165 @@ describe('Post snapshot testing', () => {
 describe('PostContainer functions work', () => {
   test('Click on button Like', () => {
     const handleCklickLike = jest.spyOn(actions, 'updatePost');
-    const showMoreComments = useSelector.mockReturnValue([]);
-    const loggedUser = useSelector.mockReturnValue(user);
-    const users = useSelector.mockReturnValue(usersArray);
 
-    const dispatch = jest.fn();
-    useDispatch.mockReturnValue(dispatch);
+    const store = mockStore({
+      modal: {
+        content: '<></>',
+        isOpenModal: false,
+      },
+      users: {
+        users: usersArray,
+        currentUser: user,
+        loggedUser: user,
+        subscribers: [],
+      },
+      posts: {
+        posts: [],
+        currentPost: {},
+        showMoreComments: [],
+        page: 0,
+        postsOnPage: 3,
+        totalPostsOnServer: 0,
+        favorites: [],
+      },
+    });
+
+    store.dispatch = jest.fn();
 
     render(
-      <BrowserRouter>
-        <PostsContainer posts={posts} />
-      </BrowserRouter>,
+      <Provider store={store}>
+        <BrowserRouter>
+          <PostsContainer posts={posts} />
+        </BrowserRouter>
+      </Provider>,
     );
 
     fireEvent.click(screen.getByTestId('likeBtn'));
-    expect(dispatch).toHaveBeenCalledTimes(1);
+    expect(store.dispatch).toHaveBeenCalledTimes(1);
     expect(handleCklickLike).toHaveBeenCalledTimes(1);
   });
 
   test('Click on button favorite', () => {
     const handleCklickFavorite = jest.spyOn(actions, 'updatePost');
-    const showMoreComments = useSelector.mockReturnValue([]);
-    const loggedUser = useSelector.mockReturnValue(user);
-    const users = useSelector.mockReturnValue(usersArray);
 
-    const dispatch = jest.fn();
-    useDispatch.mockReturnValue(dispatch);
+    const store = mockStore({
+      modal: {
+        content: '<></>',
+        isOpenModal: false,
+      },
+      users: {
+        users: usersArray,
+        currentUser: user,
+        loggedUser: user,
+        subscribers: [],
+      },
+      posts: {
+        posts: [],
+        currentPost: {},
+        showMoreComments: [],
+        page: 0,
+        postsOnPage: 3,
+        totalPostsOnServer: 0,
+        favorites: [],
+      },
+    });
+
+    store.dispatch = jest.fn();
 
     render(
-      <BrowserRouter>
-        <PostsContainer posts={posts} />
-      </BrowserRouter>,
+      <Provider store={store}>
+        <BrowserRouter>
+          <PostsContainer posts={posts} />
+        </BrowserRouter>
+      </Provider>,
     );
+
     fireEvent.click(screen.getByTestId('favoriteBtn'));
-    expect(dispatch).toHaveBeenCalledTimes(1);
+    expect(store.dispatch).toHaveBeenCalledTimes(1);
     expect(handleCklickFavorite).toHaveBeenCalledTimes(1);
   });
 
-  /* test('Click on button ShowMore', () => {
+  test('Click on button ShowMore', () => {
     const handleCklickShowMore = jest.spyOn(actions, 'showMoreChange');
-    const showMoreComments = useSelector.mockReturnValue([]);
-    const loggedUser = useSelector.mockReturnValue(user);
-    const users = useSelector.mockReturnValue(usersArray);
-    const currentPost = useSelector.mockReturnValue(post);
 
-    const dispatch = jest.fn();
-    useDispatch.mockReturnValue(dispatch);
+    const store = mockStore({
+      modal: {
+        content: '<></>',
+        isOpenModal: false,
+      },
+      users: {
+        users: usersArray,
+        currentUser: user,
+        loggedUser: user,
+        subscribers: [],
+      },
+      posts: {
+        posts: [],
+        currentPost: {},
+        showMoreComments: [],
+        page: 0,
+        postsOnPage: 3,
+        totalPostsOnServer: 0,
+        favorites: [],
+      },
+    });
+
+    store.dispatch = jest.fn();
 
     render(
-      <BrowserRouter>
-        <PostsContainer posts={posts} />
-      </BrowserRouter>,
+      <Provider store={store}>
+        <BrowserRouter>
+          <PostsContainer posts={posts} />
+        </BrowserRouter>
+      </Provider>,
     );
+
     fireEvent.click(screen.getByTestId('showMoreBtn'));
-    expect(dispatch).toHaveBeenCalledTimes(1);
+    expect(store.dispatch).toHaveBeenCalledTimes(1);
     expect(handleCklickShowMore).toHaveBeenCalledTimes(1);
-  }); */
+  });
 
   test('Click on button comments', () => {
-    const changeIsOpenPost = jest.spyOn(actions, 'changeIsOpenPost');
     const getPostById = jest.spyOn(actions, 'getPostById');
-    const showMoreComments = useSelector.mockReturnValue([]);
-    const loggedUser = useSelector.mockReturnValue(user);
-    const users = useSelector.mockReturnValue(usersArray);
+    /* const mockeduseDispatch = jest.mock('useDispatch'); */
 
-    const dispatch = jest.fn();
-    useDispatch.mockReturnValue(dispatch);
+    const store = mockStore({
+      modal: {
+        content: '<></>',
+        isOpenModal: false,
+      },
+      users: {
+        users: usersArray,
+        currentUser: user,
+        loggedUser: user,
+        subscribers: [],
+      },
+      posts: {
+        posts: [],
+        currentPost: {},
+        showMoreComments: [],
+        page: 0,
+        postsOnPage: 3,
+        totalPostsOnServer: 0,
+        favorites: [],
+      },
+    });
+
+    store.dispatch = jest.fn();
 
     render(
-      <BrowserRouter>
-        <PostsContainer posts={posts} />
-      </BrowserRouter>,
+      <Provider store={store}>
+        <BrowserRouter>
+          <PostsContainer posts={posts} />
+        </BrowserRouter>
+      </Provider>,
     );
+
+    /* const dispatch = jest.fn();
+    useDispatch.mockReturnValue(dispatch); */
+
     fireEvent.click(screen.getByTestId('commentBtn'));
-    expect(dispatch).toHaveBeenCalledTimes(2);
-    expect(getPostById).toHaveBeenCalledTimes(1);
-    expect(changeIsOpenPost).toHaveBeenCalledTimes(1);
+    expect(store.dispatch).toHaveBeenCalledTimes(3);
+    /* expect(getPostById).toHaveBeenCalledTimes(1); */
   });
 });

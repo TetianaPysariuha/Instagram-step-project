@@ -9,12 +9,13 @@ import UsersContainer from '../../components/UsersContainer/UsersContainer';
 import UserName from '../../components/UserName/UserName';
 import useScrollY from '../../hooks/useScrollY';
 import { loadNewPagePosts, clearPosts } from '../../store/posts/actionCreators';
+import Preloaders from '../../components/preloaders/Preloaders';
 
 let followByListUsers;
 let otherUsers;
 
 function HomePage() {
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const posts = useSelector((store) => store.posts.posts);
   const users = useSelector((store) => store.users.users);
   const loggedUser = useSelector((store) => store.users.loggedUser);
@@ -24,6 +25,7 @@ function HomePage() {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    setIsLoading(true);
     dispatch(clearPosts());
     dispatch(loadNewPagePosts({ start: 0, end: postsOnPage }));
   }, [dispatch]);
@@ -39,19 +41,29 @@ function HomePage() {
       otherUsers = users.filter((user) => !loggedUser.followBy.includes(user._id) && user._id !== loggedUser._id);
       followByListUsers = users.filter((user) => loggedUser.followBy.includes(user._id));
     }
-    if (isLoading && followByListUsers && followByListUsers.length > 0 && otherUsers) {
+    if (isLoading && followByListUsers && followByListUsers.length > 0 && otherUsers && posts.length > 0) {
       setIsLoading(false);
     }
-  }, [loggedUser, users]);
+  }, [loggedUser, users, posts]);
+
+  if (!posts.length) {
+    return (
+      <Preloaders />
+    );
+  }
 
   return (
     <div className={styles.homePage}>
-      {posts.length > 0 && <PostsContainer />}
-      <div className={styles.users}>
-        <UserName image={loggedUser.avatar} nickname={loggedUser.nik} additionalString={loggedUser.name} />
-        {!isLoading && followByListUsers.length > 0 && <UsersContainer isButton={false} users={followByListUsers} loggedUser={loggedUserfull} />}
-        {!isLoading && otherUsers.length > 0 && <UsersContainer isButton users={otherUsers} loggedUser={loggedUserfull} />}
-      </div>
+      { !isLoading && (
+      <>
+        <PostsContainer />
+        <div className={styles.users}>
+          <UserName id={loggedUser._id} image={loggedUser.avatar} nickname={loggedUser.nik} additionalString={loggedUser.name} />
+          <UsersContainer isButton={false} users={followByListUsers} loggedUser={loggedUserfull} />
+          <UsersContainer isButton users={otherUsers} loggedUser={loggedUserfull} />
+        </div>
+      </>
+      )}
     </div>
   );
 }
