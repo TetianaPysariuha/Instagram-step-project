@@ -41,4 +41,5 @@ DanIt group: FE online.
 
 Для запуску проекту локально необхідно:
  * для запуску локально клієнтської частини команда - npm start
- * серверна частина завантажена на сервіс heroku s знаходиться за адресою https://nameless-lake-66137.herokuapp.com/
+ * серверна частина завантажена на сервіс heroku і знаходиться за адресою https://nameless-lake-66137.herokuapp.com/
+ * клієнтська частина завантажена на сервіс heroku і знаходиться за адресою https://immense-plateau-28389.herokuapp.com/
