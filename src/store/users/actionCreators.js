@@ -5,7 +5,13 @@ import {
 const SERVER_URL = 'https://nameless-lake-66137.herokuapp.com';
 
 export const loggedUserReceiveData = (payload) => async (dispatch) => {
-  const user = await fetch(`${SERVER_URL}/users/${payload}`).then((res) => res.json()).then((data) => data.data);
+  const user = await fetch(`${SERVER_URL}/users/${payload}`, {
+    method: 'GET',
+    mode: 'cors',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  }).then((res) => res.json()).then((data) => data.data);
   dispatch({ type: LOGGING_USER, payload: user });
 };
 

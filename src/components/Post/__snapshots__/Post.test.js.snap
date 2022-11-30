@@ -110,7 +110,7 @@ exports[`Post snapshot testing Should Post to render where isLiked and isFavorit
             disabled=""
             type="submit"
           >
-            Додати коментар
+            Опублікувати
           </button>
         </form>
       </div>
@@ -229,7 +229,7 @@ exports[`Post snapshot testing Should Post to render where isLiked and isFavorit
             disabled=""
             type="submit"
           >
-            Додати коментар
+            Опублікувати
           </button>
         </form>
       </div>
