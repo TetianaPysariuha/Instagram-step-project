@@ -109,6 +109,7 @@ function PostsContainer({ posts, postStyles }) {
         handleCklickLike={() => handleCklickLike(postId, loggedUser._id)}
         handleCklickComments={() => handleCklickComments(postId)}
         isFavorite={isFavorite}
+        isShowCommentsButton={!isOpenModal}
         handleCklickFavorite={() => handleCklickFavorite(postId, loggedUser._id)}
         comments={comments}
         isMore={isMore}
