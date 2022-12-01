@@ -6,7 +6,7 @@ import CommentForm from '../CommentForm/CommentForm';
 
 function Post(props) {
   const {
-    postId, userName, mainImg, title, description, isLiked, handleCklickLike, handleCklickComments, isFavorite, handleCklickFavorite, comments, isMore, handleCklickShowMore, style, showIsMoreButton,
+    postId, userName, mainImg, title, description, isLiked, handleCklickLike, isShowCommentsButton, handleCklickComments, isFavorite, handleCklickFavorite, comments, isMore, handleCklickShowMore, style, showIsMoreButton,
   } = props;
 
   let postStyles = styles;
@@ -24,7 +24,7 @@ function Post(props) {
         <div className={postStyles.buttonBox}>
           <div className={postStyles.groupBtn}>
             <img src={isLiked ? '../../images/heart-red.svg' : '../../images/heart-white.svg'} onClick={handleCklickLike} alt={isLiked ? 'liked' : 'not liked'} data-testid="likeBtn" />
-            <img src="../../images/comment.svg" onClick={handleCklickComments} alt="see all comments" data-testid="commentBtn" />
+            {isShowCommentsButton && <img src="../../images/comment.svg" onClick={handleCklickComments} alt="see all comments" data-testid="commentBtn" />}
           </div>
           <img src={isFavorite ? '../../images/favorite-marked.svg' : '../../images/favorite.svg'} onClick={handleCklickFavorite} alt="favorite" data-testid="favoriteBtn" />
         </div>
