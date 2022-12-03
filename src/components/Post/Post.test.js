@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-boolean-value */
 import { render, screen, fireEvent } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 import Post from './Post';
@@ -27,12 +28,12 @@ describe('Post snapshot testing', () => {
           handleCklickLike={() => {}}
           handleCklickComments={() => {}}
           isFavorite
+          isShowCommentsButton={true}
           handleCklickFavorite={() => {}}
           comments={comments}
           isMore
           showIsMoreButton
           handleCklickShowMore={() => {}}
-          handleClickSubmit={() => {}}
         />
       </BrowserRouter>,
     );
@@ -51,12 +52,12 @@ describe('Post snapshot testing', () => {
           handleCklickLike={() => {}}
           handleCklickComments={() => {}}
           isFavorite
+          isShowCommentsButton={true}
           handleCklickFavorite={() => {}}
           comments={comments}
           isMore
           showIsMoreButton
           handleCklickShowMore={() => {}}
-          handleClickSubmit={() => {}}
         />
       </BrowserRouter>,
     );
@@ -78,12 +79,12 @@ describe('Post buttons work', () => {
           handleCklickLike={handleCklickLike}
           handleCklickComments={() => {}}
           isFavorite
+          isShowCommentsButton={true}
           handleCklickFavorite={() => {}}
           comments={comments}
           isMore
           showIsMoreButton
           handleCklickShowMore={() => {}}
-          handleClickSubmit={() => {}}
         />
       </BrowserRouter>,
     );
@@ -104,12 +105,12 @@ describe('Post buttons work', () => {
           handleCklickLike={() => {}}
           handleCklickComments={handleCklickComments}
           isFavorite
+          isShowCommentsButton={true}
           handleCklickFavorite={() => {}}
           comments={comments}
           isMore
           showIsMoreButton
           handleCklickShowMore={() => {}}
-          handleClickSubmit={() => {}}
         />
       </BrowserRouter>,
     );
@@ -130,12 +131,12 @@ describe('Post buttons work', () => {
           handleCklickLike={() => {}}
           handleCklickComments={() => {}}
           isFavorite
+          isShowCommentsButton={true}
           handleCklickFavorite={handleCklickFavorite}
           comments={comments}
           isMore
           showIsMoreButton
           handleCklickShowMore={() => {}}
-          handleClickSubmit={() => {}}
         />
       </BrowserRouter>,
     );
@@ -156,12 +157,12 @@ describe('Post buttons work', () => {
           handleCklickLike={() => {}}
           handleCklickComments={() => {}}
           isFavorite
+          isShowCommentsButton={true}
           handleCklickFavorite={() => {}}
           comments={comments}
           isMore
           showIsMoreButton
           handleCklickShowMore={handleCklickShowMore}
-          handleClickSubmit={() => {}}
         />
       </BrowserRouter>,
     );
