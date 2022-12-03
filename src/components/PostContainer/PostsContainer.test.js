@@ -1,16 +1,15 @@
 /* eslint-disable no-unused-vars */
 import { render, screen, fireEvent } from '@testing-library/react';
-import { Provider, useDispatch } from 'react-redux';
+import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
 import { BrowserRouter } from 'react-router-dom';
-import * as redux from 'react-redux';
 import thunk from 'redux-thunk';
 import PostsContainer from './PostsContainer';
 import * as actions from '../../store/posts/actionCreators';
 import '@testing-library/jest-dom';
-import * as modalActions from '../../store/modal/actionCreators';
 
-const mockStore = configureStore([]);
+const midlewares = [thunk];
+const mockStore = configureStore(midlewares);
 
 const post = {
   _id: '63558b3d161b35a6d8b4d9ff',
@@ -306,7 +305,7 @@ describe('PostContainer functions work', () => {
         subscribers: [],
       },
       posts: {
-        posts: [],
+        posts,
         currentPost: {},
         showMoreComments: [],
         page: 0,
@@ -321,7 +320,7 @@ describe('PostContainer functions work', () => {
     render(
       <Provider store={store}>
         <BrowserRouter>
-          <PostsContainer posts={posts} />
+          <PostsContainer />
         </BrowserRouter>
       </Provider>,
     );

@@ -67,11 +67,6 @@ exports[`Post snapshot testing Should PostContainer to render with open Modal 1`
               data-testid="likeBtn"
               src="../../images/heart-white.svg"
             />
-            <img
-              alt="see all comments"
-              data-testid="commentBtn"
-              src="../../images/comment.svg"
-            />
           </div>
           <img
             alt="favorite"
