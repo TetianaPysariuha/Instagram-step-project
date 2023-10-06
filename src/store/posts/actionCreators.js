@@ -2,7 +2,7 @@ import {
   GET_POSTS, GET_POST_BY_ID, GET_POSTS_BY_USER_ID, ADD_POST, UPDATE_POST, DELETE_POST, SHOW_MORE_CHANGE, GET_NEW_PAGE_POSTS, CLEAR_POSTS, GET_FAVORITE_POSTS, CLEAR_CURRENT_POST,
 } from './actiions';
 
-const SERVER_URL = 'https://deploy-instagram-vercel.vercel.app/';
+const SERVER_URL = 'https://deploy-instagram-vercel.vercel.app';
 
 export const getPosts = () => async (dispatch) => {
   const posts = await fetch(`${SERVER_URL}/posts`).then((res) => res.json()).then((data) => data.data);
