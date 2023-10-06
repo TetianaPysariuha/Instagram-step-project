@@ -2,7 +2,7 @@ import {
   LOGGING_USER, GET_USERS, GET_USER_BY_ID, ADD_USER, UPDATE_USER, DELETE_USER, GET_SUBSCRIBERS_BY_USER_ID, CLEAR_CURRENT_USER,
 } from './actiions';
 
-const SERVER_URL = 'https://nameless-lake-66137.herokuapp.com';
+const SERVER_URL = 'https://deploy-instagram-vercel.vercel.app/';
 
 export const loggedUserReceiveData = (payload) => async (dispatch) => {
   const user = await fetch(`${SERVER_URL}/users/${payload}`, {
